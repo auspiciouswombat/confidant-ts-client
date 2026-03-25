@@ -153,6 +153,20 @@ The client MUST use `createConnectTransport` (fetch-based) from `@connectrpc/con
 - Modifying proto definitions (requires coordinated server + proto repo changes)
 - Changing the auth interceptor pattern
 
+## Git Workflow
+
+`main` should be treated as protected. Always work on feature branches:
+
+1. `git checkout -b feature/description`
+2. Make changes, commit
+3. `git push -u origin feature/description`
+4. `gh pr create --title "..." --body "..."`
+5. **Self-review**: run `/pr-review-toolkit:review-pr`, fix all findings, push fixes. Only report the PR as ready after self-review passes.
+
+## PR Review (REQUIRED)
+
+Every PR MUST be reviewed with `/pr-review-toolkit:review-pr` before reporting it as ready. This is not optional — run it automatically after creating the PR. Fix all Critical and Important findings before asking for human review.
+
 ## Implementation Planning
 
 | Model | Use For |

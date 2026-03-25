@@ -43,7 +43,7 @@ fi
 RESPONSE=$(curl -s -X POST "${SUPABASE_URL}/auth/v1/token?grant_type=password" \
   -H "apikey: ${SUPABASE_ANON_KEY}" \
   -H "Content-Type: application/json" \
-  -d "{\"email\": \"${TEST_USER_EMAIL}\", \"password\": \"${TEST_USER_PASSWORD}\"}")
+  -d "$(jq -n --arg e "${TEST_USER_EMAIL}" --arg p "${TEST_USER_PASSWORD}" '{email:$e,password:$p}')")
 
 if echo "$RESPONSE" | grep -q '"error"'; then
   ERROR_MSG=$(echo "$RESPONSE" | jq -r '.error_description // .error // "Unknown error"')
@@ -62,6 +62,10 @@ fi
 export CONFIDANT_TEST_TOKEN
 
 CONFIDANT_TEST_USER_ID=$(echo "$RESPONSE" | jq -r '.user.id')
+if [ -z "$CONFIDANT_TEST_USER_ID" ] || [ "$CONFIDANT_TEST_USER_ID" = "null" ]; then
+  echo -e "${RED}Failed to extract user ID from Supabase response${NC}"
+  exit 1
+fi
 export CONFIDANT_TEST_USER_ID
 
 echo -e "${GREEN}Authenticated as ${TEST_USER_EMAIL}${NC}"
@@ -72,18 +76,21 @@ if [ -n "${TEST_USER2_EMAIL}" ] && [ -n "${TEST_USER2_PASSWORD}" ]; then
   RESPONSE2=$(curl -s -X POST "${SUPABASE_URL}/auth/v1/token?grant_type=password" \
     -H "apikey: ${SUPABASE_ANON_KEY}" \
     -H "Content-Type: application/json" \
-    -d "{\"email\": \"${TEST_USER2_EMAIL}\", \"password\": \"${TEST_USER2_PASSWORD}\"}")
+    -d "$(jq -n --arg e "${TEST_USER2_EMAIL}" --arg p "${TEST_USER2_PASSWORD}" '{email:$e,password:$p}')")
 
   if ! echo "$RESPONSE2" | grep -q '"error"'; then
     CONFIDANT_TEST_TOKEN2=$(echo "$RESPONSE2" | jq -r '.access_token')
     CONFIDANT_TEST_USER2_ID=$(echo "$RESPONSE2" | jq -r '.user.id')
-    if [ -n "$CONFIDANT_TEST_TOKEN2" ] && [ "$CONFIDANT_TEST_TOKEN2" != "null" ]; then
+    if [ -n "$CONFIDANT_TEST_TOKEN2" ] && [ "$CONFIDANT_TEST_TOKEN2" != "null" ] && [ -n "$CONFIDANT_TEST_USER2_ID" ] && [ "$CONFIDANT_TEST_USER2_ID" != "null" ]; then
       export CONFIDANT_TEST_TOKEN2
       export CONFIDANT_TEST_USER2_ID
       echo -e "${GREEN}Authenticated user 2 as ${TEST_USER2_EMAIL}${NC}"
+    else
+      echo -e "${YELLOW}User 2 token/ID extraction failed (multi-user tests will be skipped)${NC}"
     fi
   else
-    echo -e "${YELLOW}User 2 auth failed (multi-user tests will be skipped)${NC}"
+    ERROR_MSG2=$(echo "$RESPONSE2" | jq -r '.error_description // .error // "Unknown error"')
+    echo -e "${YELLOW}User 2 auth failed: ${ERROR_MSG2} (multi-user tests will be skipped)${NC}"
   fi
 fi
 

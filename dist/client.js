@@ -47,6 +47,9 @@ export function createConfidantClient(baseUrl, options = {}) {
         email: createClient(EmailService, transport),
         user: createClient(UserService, transport),
         setToken(token) {
+            if (!token || token.trim() === "") {
+                throw new Error("Token cannot be empty");
+            }
             currentToken = token;
         },
     };

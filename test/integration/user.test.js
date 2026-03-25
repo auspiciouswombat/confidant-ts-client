@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { describe, it, before } from "node:test";
+import { describe, it, before, skip } from "node:test";
 import { getTestClient, getTestClient2 } from "./helpers.js";
 
 describe("UserService integration", () => {
@@ -46,7 +46,10 @@ describe("UserService integration", () => {
       await assert.rejects(
         () => client.user.addIntakeAddress({ address: testAddress }),
         (err) => {
-          assert.ok(err.message.includes("already registered") || err.code, "expected duplicate error");
+          assert.ok(
+            err.code || err.message.includes("already registered"),
+            `expected duplicate error, got: ${err.message}`,
+          );
           return true;
         },
       );
@@ -66,12 +69,9 @@ describe("UserService integration", () => {
   });
 
   describe("User isolation (DRC-082)", () => {
-    it("user 2 cannot see user 1 intake addresses", async () => {
+    it("user 2 cannot see user 1 intake addresses", { skip: !process.env.CONFIDANT_TEST_TOKEN2 }, async () => {
       const client2 = getTestClient2();
-      if (!client2) {
-        // Skip if second user not configured.
-        return;
-      }
+      assert.ok(client2, "second test user must be configured for isolation tests");
 
       // User 1 adds an address
       const addr = `isolation-${Date.now()}@test.example.com`;
