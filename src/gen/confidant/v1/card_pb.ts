@@ -6,7 +6,7 @@ import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
 import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
 import type { BrandSummary } from "./brand_pb.js";
 import { file_confidant_v1_brand } from "./brand_pb.js";
-import type { ActivationMethod, CardStatus, CardType, OfferType } from "./common_pb.js";
+import type { ActivationMethod, CardSource, CardStatus, CardType, OfferType } from "./common_pb.js";
 import { file_confidant_v1_common } from "./common_pb.js";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
@@ -16,7 +16,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file confidant/v1/card.proto.
  */
 export const file_confidant_v1_card: GenFile = /*@__PURE__*/
-  fileDesc("Chdjb25maWRhbnQvdjEvY2FyZC5wcm90bxIMY29uZmlkYW50LnYxIuADCgRDYXJkEgoKAmlkGAEgASgJEhAKCGJyYW5kX2lkGAIgASgJEikKCWNhcmRfdHlwZRgDIAEoDjIWLmNvbmZpZGFudC52MS5DYXJkVHlwZRINCgV0aXRsZRgEIAEoCRIPCgdzdW1tYXJ5GAUgASgJEhEKCWltYWdlX3VybBgGIAEoCRISCgphY3Rpb25fdXJsGAcgASgJEi4KCnZhbGlkX2Zyb20YCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8KC3ZhbGlkX3VudGlsGAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIoCgZzdGF0dXMYCiABKA4yGC5jb25maWRhbnQudjEuQ2FyZFN0YXR1cxIuCgpjcmVhdGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIxCg1vZmZlcl9kZXRhaWxzGAwgASgLMhouY29uZmlkYW50LnYxLk9mZmVyRGV0YWlscxIvCgp1c2VyX3N0YXRlGA0gASgLMhsuY29uZmlkYW50LnYxLlVzZXJDYXJkU3RhdGUSKQoFYnJhbmQYDiABKAsyGi5jb25maWRhbnQudjEuQnJhbmRTdW1tYXJ5IsoBCgxPZmZlckRldGFpbHMSKwoKb2ZmZXJfdHlwZRgBIAEoDjIXLmNvbmZpZGFudC52MS5PZmZlclR5cGUSFgoOZGlzY291bnRfdmFsdWUYAiABKAESEgoKYXBwbGllc190bxgDIAEoCRI5ChFhY3RpdmF0aW9uX21ldGhvZBgEIAEoDjIeLmNvbmZpZGFudC52MS5BY3RpdmF0aW9uTWV0aG9kEhIKCnByb21vX2NvZGUYBSABKAkSEgoKY29uZGl0aW9ucxgGIAEoCSKqAQoNVXNlckNhcmRTdGF0ZRIrCgdzZWVuX2F0GAEgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIwCgxkaXNtaXNzZWRfYXQYAiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEiwKCHNhdmVkX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIMCgRub3RlGAQgASgJQkRaQmdpdGh1Yi5jb20vYXVzcGljaW91c3dvbWJhdC9jb25maWRhbnQvZ2VuL2NvbmZpZGFudC92MTtjb25maWRhbnR2MWIGcHJvdG8z", [file_confidant_v1_brand, file_confidant_v1_common, file_google_protobuf_timestamp]);
+  fileDesc("Chdjb25maWRhbnQvdjEvY2FyZC5wcm90bxIMY29uZmlkYW50LnYxIooECgRDYXJkEgoKAmlkGAEgASgJEhAKCGJyYW5kX2lkGAIgASgJEikKCWNhcmRfdHlwZRgDIAEoDjIWLmNvbmZpZGFudC52MS5DYXJkVHlwZRINCgV0aXRsZRgEIAEoCRIPCgdzdW1tYXJ5GAUgASgJEhEKCWltYWdlX3VybBgGIAEoCRISCgphY3Rpb25fdXJsGAcgASgJEi4KCnZhbGlkX2Zyb20YCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi8KC3ZhbGlkX3VudGlsGAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIoCgZzdGF0dXMYCiABKA4yGC5jb25maWRhbnQudjEuQ2FyZFN0YXR1cxIuCgpjcmVhdGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIxCg1vZmZlcl9kZXRhaWxzGAwgASgLMhouY29uZmlkYW50LnYxLk9mZmVyRGV0YWlscxIvCgp1c2VyX3N0YXRlGA0gASgLMhsuY29uZmlkYW50LnYxLlVzZXJDYXJkU3RhdGUSKQoFYnJhbmQYDiABKAsyGi5jb25maWRhbnQudjEuQnJhbmRTdW1tYXJ5EigKBnNvdXJjZRgPIAEoDjIYLmNvbmZpZGFudC52MS5DYXJkU291cmNlIqICCgxPZmZlckRldGFpbHMSKwoKb2ZmZXJfdHlwZRgBIAEoDjIXLmNvbmZpZGFudC52MS5PZmZlclR5cGUSFgoOZGlzY291bnRfdmFsdWUYAiABKAESEgoKYXBwbGllc190bxgDIAEoCRI5ChFhY3RpdmF0aW9uX21ldGhvZBgEIAEoDjIeLmNvbmZpZGFudC52MS5BY3RpdmF0aW9uTWV0aG9kEhIKCnByb21vX2NvZGUYBSABKAkSEgoKY29uZGl0aW9ucxgGIAEoCRIbCg5vcmlnaW5hbF9wcmljZRgHIAEoAUgAiAEBEhcKCnNhbGVfcHJpY2UYCCABKAFIAYgBAUIRCg9fb3JpZ2luYWxfcHJpY2VCDQoLX3NhbGVfcHJpY2UiqgEKDVVzZXJDYXJkU3RhdGUSKwoHc2Vlbl9hdBgBIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASMAoMZGlzbWlzc2VkX2F0GAIgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIsCghzYXZlZF9hdBgDIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASDAoEbm90ZRgEIAEoCUJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_confidant_v1_brand, file_confidant_v1_common, file_google_protobuf_timestamp]);
 
 /**
  * @generated from message confidant.v1.Card
@@ -91,6 +91,11 @@ export type Card = Message<"confidant.v1.Card"> & {
    * @generated from field: confidant.v1.BrandSummary brand = 14;
    */
   brand?: BrandSummary;
+
+  /**
+   * @generated from field: confidant.v1.CardSource source = 15;
+   */
+  source: CardSource;
 };
 
 /**
@@ -133,6 +138,16 @@ export type OfferDetails = Message<"confidant.v1.OfferDetails"> & {
    * @generated from field: string conditions = 6;
    */
   conditions: string;
+
+  /**
+   * @generated from field: optional double original_price = 7;
+   */
+  originalPrice?: number;
+
+  /**
+   * @generated from field: optional double sale_price = 8;
+   */
+  salePrice?: number;
 };
 
 /**

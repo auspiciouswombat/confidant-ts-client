@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file confidant/v1/user_service.proto.
  */
 export const file_confidant_v1_user_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch9jb25maWRhbnQvdjEvdXNlcl9zZXJ2aWNlLnByb3RvEgxjb25maWRhbnQudjEiFwoVR2V0Q3VycmVudFVzZXJSZXF1ZXN0IjoKFkdldEN1cnJlbnRVc2VyUmVzcG9uc2USIAoEdXNlchgBIAEoCzISLmNvbmZpZGFudC52MS5Vc2VyIjkKF0FkZEludGFrZUFkZHJlc3NSZXF1ZXN0Eg8KB2FkZHJlc3MYASABKAkSDQoFbGFiZWwYAiABKAkiTwoYQWRkSW50YWtlQWRkcmVzc1Jlc3BvbnNlEjMKDmludGFrZV9hZGRyZXNzGAEgASgLMhsuY29uZmlkYW50LnYxLkludGFrZUFkZHJlc3MiHAoaTGlzdEludGFrZUFkZHJlc3Nlc1JlcXVlc3QiVAobTGlzdEludGFrZUFkZHJlc3Nlc1Jlc3BvbnNlEjUKEGludGFrZV9hZGRyZXNzZXMYASADKAsyGy5jb25maWRhbnQudjEuSW50YWtlQWRkcmVzcyIoChpSZW1vdmVJbnRha2VBZGRyZXNzUmVxdWVzdBIKCgJpZBgBIAEoCSIdChtSZW1vdmVJbnRha2VBZGRyZXNzUmVzcG9uc2UypQMKC1VzZXJTZXJ2aWNlElsKDkdldEN1cnJlbnRVc2VyEiMuY29uZmlkYW50LnYxLkdldEN1cnJlbnRVc2VyUmVxdWVzdBokLmNvbmZpZGFudC52MS5HZXRDdXJyZW50VXNlclJlc3BvbnNlEmEKEEFkZEludGFrZUFkZHJlc3MSJS5jb25maWRhbnQudjEuQWRkSW50YWtlQWRkcmVzc1JlcXVlc3QaJi5jb25maWRhbnQudjEuQWRkSW50YWtlQWRkcmVzc1Jlc3BvbnNlEmoKE0xpc3RJbnRha2VBZGRyZXNzZXMSKC5jb25maWRhbnQudjEuTGlzdEludGFrZUFkZHJlc3Nlc1JlcXVlc3QaKS5jb25maWRhbnQudjEuTGlzdEludGFrZUFkZHJlc3Nlc1Jlc3BvbnNlEmoKE1JlbW92ZUludGFrZUFkZHJlc3MSKC5jb25maWRhbnQudjEuUmVtb3ZlSW50YWtlQWRkcmVzc1JlcXVlc3QaKS5jb25maWRhbnQudjEuUmVtb3ZlSW50YWtlQWRkcmVzc1Jlc3BvbnNlQkRaQmdpdGh1Yi5jb20vYXVzcGljaW91c3dvbWJhdC9jb25maWRhbnQvZ2VuL2NvbmZpZGFudC92MTtjb25maWRhbnR2MWIGcHJvdG8z", [file_confidant_v1_user]);
+  fileDesc("Ch9jb25maWRhbnQvdjEvdXNlcl9zZXJ2aWNlLnByb3RvEgxjb25maWRhbnQudjEiFwoVR2V0Q3VycmVudFVzZXJSZXF1ZXN0IjoKFkdldEN1cnJlbnRVc2VyUmVzcG9uc2USIAoEdXNlchgBIAEoCzISLmNvbmZpZGFudC52MS5Vc2VyIjkKF0FkZEludGFrZUFkZHJlc3NSZXF1ZXN0Eg8KB2FkZHJlc3MYASABKAkSDQoFbGFiZWwYAiABKAkiTwoYQWRkSW50YWtlQWRkcmVzc1Jlc3BvbnNlEjMKDmludGFrZV9hZGRyZXNzGAEgASgLMhsuY29uZmlkYW50LnYxLkludGFrZUFkZHJlc3MiHAoaTGlzdEludGFrZUFkZHJlc3Nlc1JlcXVlc3QiVAobTGlzdEludGFrZUFkZHJlc3Nlc1Jlc3BvbnNlEjUKEGludGFrZV9hZGRyZXNzZXMYASADKAsyGy5jb25maWRhbnQudjEuSW50YWtlQWRkcmVzcyIoChpSZW1vdmVJbnRha2VBZGRyZXNzUmVxdWVzdBIKCgJpZBgBIAEoCSIdChtSZW1vdmVJbnRha2VBZGRyZXNzUmVzcG9uc2UiZwoRVXBkYXRlVXNlclJlcXVlc3QSGQoMZGlzcGxheV9uYW1lGAEgASgJSACIAQESFwoKYXZhdGFyX3VybBgCIAEoCUgBiAEBQg8KDV9kaXNwbGF5X25hbWVCDQoLX2F2YXRhcl91cmwiNgoSVXBkYXRlVXNlclJlc3BvbnNlEiAKBHVzZXIYASABKAsyEi5jb25maWRhbnQudjEuVXNlcjL2AwoLVXNlclNlcnZpY2USWwoOR2V0Q3VycmVudFVzZXISIy5jb25maWRhbnQudjEuR2V0Q3VycmVudFVzZXJSZXF1ZXN0GiQuY29uZmlkYW50LnYxLkdldEN1cnJlbnRVc2VyUmVzcG9uc2USYQoQQWRkSW50YWtlQWRkcmVzcxIlLmNvbmZpZGFudC52MS5BZGRJbnRha2VBZGRyZXNzUmVxdWVzdBomLmNvbmZpZGFudC52MS5BZGRJbnRha2VBZGRyZXNzUmVzcG9uc2USagoTTGlzdEludGFrZUFkZHJlc3NlcxIoLmNvbmZpZGFudC52MS5MaXN0SW50YWtlQWRkcmVzc2VzUmVxdWVzdBopLmNvbmZpZGFudC52MS5MaXN0SW50YWtlQWRkcmVzc2VzUmVzcG9uc2USagoTUmVtb3ZlSW50YWtlQWRkcmVzcxIoLmNvbmZpZGFudC52MS5SZW1vdmVJbnRha2VBZGRyZXNzUmVxdWVzdBopLmNvbmZpZGFudC52MS5SZW1vdmVJbnRha2VBZGRyZXNzUmVzcG9uc2USTwoKVXBkYXRlVXNlchIfLmNvbmZpZGFudC52MS5VcGRhdGVVc2VyUmVxdWVzdBogLmNvbmZpZGFudC52MS5VcGRhdGVVc2VyUmVzcG9uc2VCRFpCZ2l0aHViLmNvbS9hdXNwaWNpb3Vzd29tYmF0L2NvbmZpZGFudC9nZW4vY29uZmlkYW50L3YxO2NvbmZpZGFudHYxYgZwcm90bzM", [file_confidant_v1_user]);
 
 /**
  * @generated from message confidant.v1.GetCurrentUserRequest
@@ -144,6 +144,45 @@ export const RemoveIntakeAddressResponseSchema: GenMessage<RemoveIntakeAddressRe
   messageDesc(file_confidant_v1_user_service, 7);
 
 /**
+ * @generated from message confidant.v1.UpdateUserRequest
+ */
+export type UpdateUserRequest = Message<"confidant.v1.UpdateUserRequest"> & {
+  /**
+   * @generated from field: optional string display_name = 1;
+   */
+  displayName?: string;
+
+  /**
+   * @generated from field: optional string avatar_url = 2;
+   */
+  avatarUrl?: string;
+};
+
+/**
+ * Describes the message confidant.v1.UpdateUserRequest.
+ * Use `create(UpdateUserRequestSchema)` to create a new message.
+ */
+export const UpdateUserRequestSchema: GenMessage<UpdateUserRequest> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 8);
+
+/**
+ * @generated from message confidant.v1.UpdateUserResponse
+ */
+export type UpdateUserResponse = Message<"confidant.v1.UpdateUserResponse"> & {
+  /**
+   * @generated from field: confidant.v1.User user = 1;
+   */
+  user?: User;
+};
+
+/**
+ * Describes the message confidant.v1.UpdateUserResponse.
+ * Use `create(UpdateUserResponseSchema)` to create a new message.
+ */
+export const UpdateUserResponseSchema: GenMessage<UpdateUserResponse> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 9);
+
+/**
  * @generated from service confidant.v1.UserService
  */
 export const UserService: GenService<{
@@ -187,6 +226,16 @@ export const UserService: GenService<{
     methodKind: "unary";
     input: typeof RemoveIntakeAddressRequestSchema;
     output: typeof RemoveIntakeAddressResponseSchema;
+  },
+  /**
+   * Updates the authenticated user's profile fields.
+   *
+   * @generated from rpc confidant.v1.UserService.UpdateUser
+   */
+  updateUser: {
+    methodKind: "unary";
+    input: typeof UpdateUserRequestSchema;
+    output: typeof UpdateUserResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_confidant_v1_user_service, 0);

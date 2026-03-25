@@ -107,6 +107,38 @@ export type RemoveIntakeAddressResponse = Message<"confidant.v1.RemoveIntakeAddr
  */
 export declare const RemoveIntakeAddressResponseSchema: GenMessage<RemoveIntakeAddressResponse>;
 /**
+ * @generated from message confidant.v1.UpdateUserRequest
+ */
+export type UpdateUserRequest = Message<"confidant.v1.UpdateUserRequest"> & {
+    /**
+     * @generated from field: optional string display_name = 1;
+     */
+    displayName?: string;
+    /**
+     * @generated from field: optional string avatar_url = 2;
+     */
+    avatarUrl?: string;
+};
+/**
+ * Describes the message confidant.v1.UpdateUserRequest.
+ * Use `create(UpdateUserRequestSchema)` to create a new message.
+ */
+export declare const UpdateUserRequestSchema: GenMessage<UpdateUserRequest>;
+/**
+ * @generated from message confidant.v1.UpdateUserResponse
+ */
+export type UpdateUserResponse = Message<"confidant.v1.UpdateUserResponse"> & {
+    /**
+     * @generated from field: confidant.v1.User user = 1;
+     */
+    user?: User;
+};
+/**
+ * Describes the message confidant.v1.UpdateUserResponse.
+ * Use `create(UpdateUserResponseSchema)` to create a new message.
+ */
+export declare const UpdateUserResponseSchema: GenMessage<UpdateUserResponse>;
+/**
  * @generated from service confidant.v1.UserService
  */
 export declare const UserService: GenService<{
@@ -150,6 +182,16 @@ export declare const UserService: GenService<{
         methodKind: "unary";
         input: typeof RemoveIntakeAddressRequestSchema;
         output: typeof RemoveIntakeAddressResponseSchema;
+    };
+    /**
+     * Updates the authenticated user's profile fields.
+     *
+     * @generated from rpc confidant.v1.UserService.UpdateUser
+     */
+    updateUser: {
+        methodKind: "unary";
+        input: typeof UpdateUserRequestSchema;
+        output: typeof UpdateUserResponseSchema;
     };
 }>;
 //# sourceMappingURL=user_service_pb.d.ts.map

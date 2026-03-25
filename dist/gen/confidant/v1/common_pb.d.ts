@@ -223,4 +223,37 @@ export declare enum SubscriptionSource {
  * Describes the enum confidant.v1.SubscriptionSource.
  */
 export declare const SubscriptionSourceSchema: GenEnum<SubscriptionSource>;
+/**
+ * @generated from enum confidant.v1.CardSource
+ */
+export declare enum CardSource {
+    /**
+     * @generated from enum value: CARD_SOURCE_UNSPECIFIED = 0;
+     */
+    UNSPECIFIED = 0,
+    /**
+     * @generated from enum value: CARD_SOURCE_EMAIL = 1;
+     */
+    EMAIL = 1,
+    /**
+     * @generated from enum value: CARD_SOURCE_WEB = 2;
+     */
+    WEB = 2,
+    /**
+     * @generated from enum value: CARD_SOURCE_SMS = 3;
+     */
+    SMS = 3,
+    /**
+     * @generated from enum value: CARD_SOURCE_CREDIT_CARD = 4;
+     */
+    CREDIT_CARD = 4,
+    /**
+     * @generated from enum value: CARD_SOURCE_OTHER = 5;
+     */
+    OTHER = 5
+}
+/**
+ * Describes the enum confidant.v1.CardSource.
+ */
+export declare const CardSourceSchema: GenEnum<CardSource>;
 //# sourceMappingURL=common_pb.d.ts.map

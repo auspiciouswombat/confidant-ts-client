@@ -1,6 +1,6 @@
 import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
 import type { BrandSummary } from "./brand_pb.js";
-import type { ActivationMethod, CardStatus, CardType, OfferType } from "./common_pb.js";
+import type { ActivationMethod, CardSource, CardStatus, CardType, OfferType } from "./common_pb.js";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import type { Message } from "@bufbuild/protobuf";
 /**
@@ -67,6 +67,10 @@ export type Card = Message<"confidant.v1.Card"> & {
      * @generated from field: confidant.v1.BrandSummary brand = 14;
      */
     brand?: BrandSummary;
+    /**
+     * @generated from field: confidant.v1.CardSource source = 15;
+     */
+    source: CardSource;
 };
 /**
  * Describes the message confidant.v1.Card.
@@ -101,6 +105,14 @@ export type OfferDetails = Message<"confidant.v1.OfferDetails"> & {
      * @generated from field: string conditions = 6;
      */
     conditions: string;
+    /**
+     * @generated from field: optional double original_price = 7;
+     */
+    originalPrice?: number;
+    /**
+     * @generated from field: optional double sale_price = 8;
+     */
+    salePrice?: number;
 };
 /**
  * Describes the message confidant.v1.OfferDetails.

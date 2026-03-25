@@ -29,6 +29,10 @@ export type User = Message<"confidant.v1.User"> & {
      * @generated from field: google.protobuf.Timestamp created_at = 5;
      */
     createdAt?: Timestamp;
+    /**
+     * @generated from field: string avatar_url = 6;
+     */
+    avatarUrl: string;
 };
 /**
  * Describes the message confidant.v1.User.

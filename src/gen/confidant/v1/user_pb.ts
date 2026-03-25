@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file confidant/v1/user.proto.
  */
 export const file_confidant_v1_user: GenFile = /*@__PURE__*/
-  fileDesc("Chdjb25maWRhbnQvdjEvdXNlci5wcm90bxIMY29uZmlkYW50LnYxIoABCgRVc2VyEgoKAmlkGAEgASgJEg0KBWVtYWlsGAIgASgJEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRIXCg9pbmJvdW5kX2FkZHJlc3MYBCABKAkSLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAifwoNSW50YWtlQWRkcmVzcxIKCgJpZBgBIAEoCRIPCgdhZGRyZXNzGAIgASgJEg0KBWxhYmVsGAMgASgJEhIKCmlzX3ByaW1hcnkYBCABKAgSLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBCRFpCZ2l0aHViLmNvbS9hdXNwaWNpb3Vzd29tYmF0L2NvbmZpZGFudC9nZW4vY29uZmlkYW50L3YxO2NvbmZpZGFudHYxYgZwcm90bzM", [file_google_protobuf_timestamp]);
+  fileDesc("Chdjb25maWRhbnQvdjEvdXNlci5wcm90bxIMY29uZmlkYW50LnYxIpQBCgRVc2VyEgoKAmlkGAEgASgJEg0KBWVtYWlsGAIgASgJEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRIXCg9pbmJvdW5kX2FkZHJlc3MYBCABKAkSLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEgoKYXZhdGFyX3VybBgGIAEoCSJ/Cg1JbnRha2VBZGRyZXNzEgoKAmlkGAEgASgJEg8KB2FkZHJlc3MYAiABKAkSDQoFbGFiZWwYAyABKAkSEgoKaXNfcHJpbWFyeRgEIAEoCBIuCgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_google_protobuf_timestamp]);
 
 /**
  * @generated from message confidant.v1.User
@@ -42,6 +42,11 @@ export type User = Message<"confidant.v1.User"> & {
    * @generated from field: google.protobuf.Timestamp created_at = 5;
    */
   createdAt?: Timestamp;
+
+  /**
+   * @generated from field: string avatar_url = 6;
+   */
+  avatarUrl: string;
 };
 
 /**
