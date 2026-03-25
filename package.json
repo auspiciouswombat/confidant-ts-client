@@ -21,6 +21,7 @@
     "proto-check": "make proto-check",
     "codegen": "make codegen",
     "prebuild": "npm run codegen",
+    "prepublishOnly": "npm run build",
     "test": "node --test test/smoke.test.js",
     "lint": "biome check src/client.ts src/index.ts test/",
     "lint:fix": "biome check --write src/client.ts src/index.ts test/",
