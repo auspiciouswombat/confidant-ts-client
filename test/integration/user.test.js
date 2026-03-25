@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it, before, skip } from "node:test";
+import { isAlreadyExists } from "../../dist/index.js";
 import { getTestClient, getTestClient2 } from "./helpers.js";
 
 describe("UserService integration", () => {
@@ -46,10 +47,7 @@ describe("UserService integration", () => {
       await assert.rejects(
         () => client.user.addIntakeAddress({ address: testAddress }),
         (err) => {
-          assert.ok(
-            err.code || err.message.includes("already registered"),
-            `expected duplicate error, got: ${err.message}`,
-          );
+          assert.ok(isAlreadyExists(err), `expected AlreadyExists error, got: ${err.message}`);
           return true;
         },
       );

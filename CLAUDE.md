@@ -98,13 +98,15 @@ Retry with exponential backoff on transient errors, request deduplication, and t
 
 **Check:** App code calling client methods should not be wrapped in try/catch/retry. Error handling in the app should be for UI decisions only.
 
-### DRC-103: Explicit Re-Exports Only
+### DRC-103: Named Exports for Service Files
 
-`index.ts` MUST explicitly re-export stable domain types. Do not use `export * from "*_pb.js"` for internal-only types like `ServiceDesc`, raw request/response schemas, or codec details.
+`index.ts` MUST use named exports for `*_service_pb.js` files (e.g., `export { BrandService }`). Wildcard `export *` from service files leaks internal types like `ServiceDesc`, raw request/response schemas, and codec details.
 
-**Why:** Wildcard re-exports make every generated type part of the public API. Proto regeneration can break consumers if internal types change.
+Wildcard `export *` from domain message files (`*_pb.js`) IS allowed — these export enums, message types, and schemas that consumers legitimately need.
 
-**Check:** `index.ts` should not have `export *` for service definition files. Service descriptors are re-exported individually for advanced usage.
+**Why:** Service file internals change across proto regenerations. Domain types are the stable public surface.
+
+**Check:** `index.ts` must not have `export * from "...*_service_pb.js"`. Domain `*_pb.js` wildcards are acceptable.
 
 ### DRC-104: App Never Constructs Proto Messages Directly
 
