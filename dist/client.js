@@ -15,6 +15,7 @@ import { BrandService } from "./gen/confidant/v1/brand_service_pb.js";
 import { CardService } from "./gen/confidant/v1/card_service_pb.js";
 import { CollectionService } from "./gen/confidant/v1/collection_service_pb.js";
 import { EmailService } from "./gen/confidant/v1/email_service_pb.js";
+import { UserService } from "./gen/confidant/v1/user_service_pb.js";
 /**
  * Create a typed Confidant API client.
  *
@@ -44,6 +45,7 @@ export function createConfidantClient(baseUrl, options = {}) {
         card: createClient(CardService, transport),
         collection: createClient(CollectionService, transport),
         email: createClient(EmailService, transport),
+        user: createClient(UserService, transport),
         setToken(token) {
             currentToken = token;
         },

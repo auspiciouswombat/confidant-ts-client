@@ -23,6 +23,7 @@
     "prebuild": "npm run codegen",
     "prepublishOnly": "npm run build",
     "test": "node --test test/smoke.test.js",
+    "test:integration": "./bin/run-integration-tests.sh",
     "lint": "biome check src/client.ts src/index.ts test/",
     "lint:fix": "biome check --write src/client.ts src/index.ts test/",
     "format": "biome format --write src/client.ts src/index.ts test/",

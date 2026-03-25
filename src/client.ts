@@ -17,6 +17,7 @@ import { BrandService } from "./gen/confidant/v1/brand_service_pb.js";
 import { CardService } from "./gen/confidant/v1/card_service_pb.js";
 import { CollectionService } from "./gen/confidant/v1/collection_service_pb.js";
 import { EmailService } from "./gen/confidant/v1/email_service_pb.js";
+import { UserService } from "./gen/confidant/v1/user_service_pb.js";
 
 export interface ConfidantClientOptions {
   /** JWT token for authentication */
@@ -30,6 +31,7 @@ export interface ConfidantClient {
   card: Client<typeof CardService>;
   collection: Client<typeof CollectionService>;
   email: Client<typeof EmailService>;
+  user: Client<typeof UserService>;
   /** Update the auth token (e.g., after refresh) */
   setToken: (token: string) => void;
 }
@@ -68,6 +70,7 @@ export function createConfidantClient(
     card: createClient(CardService, transport),
     collection: createClient(CollectionService, transport),
     email: createClient(EmailService, transport),
+    user: createClient(UserService, transport),
     setToken(token: string) {
       currentToken = token;
     },

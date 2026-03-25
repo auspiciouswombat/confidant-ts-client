@@ -13,12 +13,13 @@ import {
 } from "../dist/index.js";
 
 describe("createConfidantClient", () => {
-  it("creates a client with all four service namespaces", () => {
+  it("creates a client with all five service namespaces", () => {
     const client = createConfidantClient("http://localhost:8080");
     assert.ok(client.brand, "brand service exists");
     assert.ok(client.card, "card service exists");
     assert.ok(client.collection, "collection service exists");
     assert.ok(client.email, "email service exists");
+    assert.ok(client.user, "user service exists");
     assert.ok(typeof client.setToken === "function", "setToken exists");
   });
 

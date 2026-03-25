@@ -1,4 +1,4 @@
-.PHONY: proto-sync proto-check codegen build test
+.PHONY: proto-sync proto-check codegen build test test-integration
 
 # Proto sync configuration
 PROTO_REPO ?= https://github.com/auspiciouswombat/confidant-proto.git
@@ -39,6 +39,10 @@ codegen:
 build:
 	npm run build
 
-# Run tests
+# Run unit/smoke tests
 test:
 	npm test
+
+# Run integration tests (requires running server + .env.test config)
+test-integration:
+	./bin/run-integration-tests.sh
