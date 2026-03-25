@@ -1,0 +1,41 @@
+{
+  "name": "@confidant/api-client",
+  "version": "0.1.0",
+  "description": "Typed TypeScript client for the Confidant Connect RPC API",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "proto-sync": "rm -rf proto && git clone --depth 1 https://github.com/auspiciouswombat/confidant-proto.git proto && rm -rf proto/.git",
+    "codegen": "PATH=\"$PATH:./node_modules/.bin\" buf generate proto",
+    "prebuild": "npm run codegen",
+    "test": "node --test test/smoke.test.js",
+    "lint": "biome check src/client.ts src/index.ts test/",
+    "lint:fix": "biome check --write src/client.ts src/index.ts test/",
+    "format": "biome format --write src/client.ts src/index.ts test/",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.11.0",
+    "@connectrpc/connect": "^2.1.1",
+    "@connectrpc/connect-web": "^2.1.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.8",
+    "@bufbuild/protoc-gen-es": "^2.11.0",
+    "typescript": "^6.0.2"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
