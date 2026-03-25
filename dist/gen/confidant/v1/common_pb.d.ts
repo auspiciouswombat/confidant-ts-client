@@ -256,4 +256,25 @@ export declare enum CardSource {
  * Describes the enum confidant.v1.CardSource.
  */
 export declare const CardSourceSchema: GenEnum<CardSource>;
+/**
+ * @generated from enum confidant.v1.ContactEmailStatus
+ */
+export declare enum ContactEmailStatus {
+    /**
+     * @generated from enum value: CONTACT_EMAIL_STATUS_UNSPECIFIED = 0;
+     */
+    UNSPECIFIED = 0,
+    /**
+     * @generated from enum value: CONTACT_EMAIL_STATUS_ACTIVE = 1;
+     */
+    ACTIVE = 1,
+    /**
+     * @generated from enum value: CONTACT_EMAIL_STATUS_RETIRED = 2;
+     */
+    RETIRED = 2
+}
+/**
+ * Describes the enum confidant.v1.ContactEmailStatus.
+ */
+export declare const ContactEmailStatusSchema: GenEnum<ContactEmailStatus>;
 //# sourceMappingURL=common_pb.d.ts.map

@@ -4,6 +4,8 @@
 
 import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
 import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
+import type { ContactEmailStatus } from "./common_pb.js";
+import { file_confidant_v1_common } from "./common_pb.js";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
 import type { Message } from "@bufbuild/protobuf";
@@ -12,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file confidant/v1/user.proto.
  */
 export const file_confidant_v1_user: GenFile = /*@__PURE__*/
-  fileDesc("Chdjb25maWRhbnQvdjEvdXNlci5wcm90bxIMY29uZmlkYW50LnYxIpQBCgRVc2VyEgoKAmlkGAEgASgJEg0KBWVtYWlsGAIgASgJEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRIXCg9pbmJvdW5kX2FkZHJlc3MYBCABKAkSLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEgoKYXZhdGFyX3VybBgGIAEoCSJ/Cg1JbnRha2VBZGRyZXNzEgoKAmlkGAEgASgJEg8KB2FkZHJlc3MYAiABKAkSDQoFbGFiZWwYAyABKAkSEgoKaXNfcHJpbWFyeRgEIAEoCBIuCgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_google_protobuf_timestamp]);
+  fileDesc("Chdjb25maWRhbnQvdjEvdXNlci5wcm90bxIMY29uZmlkYW50LnYxIpQBCgRVc2VyEgoKAmlkGAEgASgJEg0KBWVtYWlsGAIgASgJEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRIXCg9pbmJvdW5kX2FkZHJlc3MYBCABKAkSLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEgoKYXZhdGFyX3VybBgGIAEoCSLMAQoMQ29udGFjdEVtYWlsEgoKAmlkGAEgASgJEg8KB2FkZHJlc3MYAiABKAkSDQoFbGFiZWwYAyABKAkSMAoGc3RhdHVzGAQgASgOMiAuY29uZmlkYW50LnYxLkNvbnRhY3RFbWFpbFN0YXR1cxIuCgpyZXRpcmVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgpjcmVhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_confidant_v1_common, file_google_protobuf_timestamp]);
 
 /**
  * @generated from message confidant.v1.User
@@ -57,9 +59,9 @@ export const UserSchema: GenMessage<User> = /*@__PURE__*/
   messageDesc(file_confidant_v1_user, 0);
 
 /**
- * @generated from message confidant.v1.IntakeAddress
+ * @generated from message confidant.v1.ContactEmail
  */
-export type IntakeAddress = Message<"confidant.v1.IntakeAddress"> & {
+export type ContactEmail = Message<"confidant.v1.ContactEmail"> & {
   /**
    * @generated from field: string id = 1;
    */
@@ -76,20 +78,25 @@ export type IntakeAddress = Message<"confidant.v1.IntakeAddress"> & {
   label: string;
 
   /**
-   * @generated from field: bool is_primary = 4;
+   * @generated from field: confidant.v1.ContactEmailStatus status = 4;
    */
-  isPrimary: boolean;
+  status: ContactEmailStatus;
 
   /**
-   * @generated from field: google.protobuf.Timestamp created_at = 5;
+   * @generated from field: google.protobuf.Timestamp retired_at = 5;
+   */
+  retiredAt?: Timestamp;
+
+  /**
+   * @generated from field: google.protobuf.Timestamp created_at = 6;
    */
   createdAt?: Timestamp;
 };
 
 /**
- * Describes the message confidant.v1.IntakeAddress.
- * Use `create(IntakeAddressSchema)` to create a new message.
+ * Describes the message confidant.v1.ContactEmail.
+ * Use `create(ContactEmailSchema)` to create a new message.
  */
-export const IntakeAddressSchema: GenMessage<IntakeAddress> = /*@__PURE__*/
+export const ContactEmailSchema: GenMessage<ContactEmail> = /*@__PURE__*/
   messageDesc(file_confidant_v1_user, 1);
 

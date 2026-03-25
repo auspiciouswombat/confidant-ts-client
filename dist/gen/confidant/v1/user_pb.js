@@ -2,19 +2,20 @@
 // @generated from file confidant/v1/user.proto (package confidant.v1, syntax proto3)
 /* eslint-disable */
 import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
+import { file_confidant_v1_common } from "./common_pb.js";
 import { file_google_protobuf_timestamp } from "@bufbuild/protobuf/wkt";
 /**
  * Describes the file confidant/v1/user.proto.
  */
-export const file_confidant_v1_user = /*@__PURE__*/ fileDesc("Chdjb25maWRhbnQvdjEvdXNlci5wcm90bxIMY29uZmlkYW50LnYxIpQBCgRVc2VyEgoKAmlkGAEgASgJEg0KBWVtYWlsGAIgASgJEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRIXCg9pbmJvdW5kX2FkZHJlc3MYBCABKAkSLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEgoKYXZhdGFyX3VybBgGIAEoCSJ/Cg1JbnRha2VBZGRyZXNzEgoKAmlkGAEgASgJEg8KB2FkZHJlc3MYAiABKAkSDQoFbGFiZWwYAyABKAkSEgoKaXNfcHJpbWFyeRgEIAEoCBIuCgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_google_protobuf_timestamp]);
+export const file_confidant_v1_user = /*@__PURE__*/ fileDesc("Chdjb25maWRhbnQvdjEvdXNlci5wcm90bxIMY29uZmlkYW50LnYxIpQBCgRVc2VyEgoKAmlkGAEgASgJEg0KBWVtYWlsGAIgASgJEhQKDGRpc3BsYXlfbmFtZRgDIAEoCRIXCg9pbmJvdW5kX2FkZHJlc3MYBCABKAkSLgoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASEgoKYXZhdGFyX3VybBgGIAEoCSLMAQoMQ29udGFjdEVtYWlsEgoKAmlkGAEgASgJEg8KB2FkZHJlc3MYAiABKAkSDQoFbGFiZWwYAyABKAkSMAoGc3RhdHVzGAQgASgOMiAuY29uZmlkYW50LnYxLkNvbnRhY3RFbWFpbFN0YXR1cxIuCgpyZXRpcmVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgpjcmVhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcEJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_confidant_v1_common, file_google_protobuf_timestamp]);
 /**
  * Describes the message confidant.v1.User.
  * Use `create(UserSchema)` to create a new message.
  */
 export const UserSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user, 0);
 /**
- * Describes the message confidant.v1.IntakeAddress.
- * Use `create(IntakeAddressSchema)` to create a new message.
+ * Describes the message confidant.v1.ContactEmail.
+ * Use `create(ContactEmailSchema)` to create a new message.
  */
-export const IntakeAddressSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user, 1);
+export const ContactEmailSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user, 1);
 //# sourceMappingURL=user_pb.js.map

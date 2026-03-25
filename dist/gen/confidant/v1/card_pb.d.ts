@@ -71,6 +71,10 @@ export type Card = Message<"confidant.v1.Card"> & {
      * @generated from field: confidant.v1.CardSource source = 15;
      */
     source: CardSource;
+    /**
+     * @generated from field: string contact_email_id = 16;
+     */
+    contactEmailId: string;
 };
 /**
  * Describes the message confidant.v1.Card.

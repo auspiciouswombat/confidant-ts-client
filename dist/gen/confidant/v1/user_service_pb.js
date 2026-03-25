@@ -6,7 +6,7 @@ import { file_confidant_v1_user } from "./user_pb.js";
 /**
  * Describes the file confidant/v1/user_service.proto.
  */
-export const file_confidant_v1_user_service = /*@__PURE__*/ fileDesc("Ch9jb25maWRhbnQvdjEvdXNlcl9zZXJ2aWNlLnByb3RvEgxjb25maWRhbnQudjEiFwoVR2V0Q3VycmVudFVzZXJSZXF1ZXN0IjoKFkdldEN1cnJlbnRVc2VyUmVzcG9uc2USIAoEdXNlchgBIAEoCzISLmNvbmZpZGFudC52MS5Vc2VyIjkKF0FkZEludGFrZUFkZHJlc3NSZXF1ZXN0Eg8KB2FkZHJlc3MYASABKAkSDQoFbGFiZWwYAiABKAkiTwoYQWRkSW50YWtlQWRkcmVzc1Jlc3BvbnNlEjMKDmludGFrZV9hZGRyZXNzGAEgASgLMhsuY29uZmlkYW50LnYxLkludGFrZUFkZHJlc3MiHAoaTGlzdEludGFrZUFkZHJlc3Nlc1JlcXVlc3QiVAobTGlzdEludGFrZUFkZHJlc3Nlc1Jlc3BvbnNlEjUKEGludGFrZV9hZGRyZXNzZXMYASADKAsyGy5jb25maWRhbnQudjEuSW50YWtlQWRkcmVzcyIoChpSZW1vdmVJbnRha2VBZGRyZXNzUmVxdWVzdBIKCgJpZBgBIAEoCSIdChtSZW1vdmVJbnRha2VBZGRyZXNzUmVzcG9uc2UiZwoRVXBkYXRlVXNlclJlcXVlc3QSGQoMZGlzcGxheV9uYW1lGAEgASgJSACIAQESFwoKYXZhdGFyX3VybBgCIAEoCUgBiAEBQg8KDV9kaXNwbGF5X25hbWVCDQoLX2F2YXRhcl91cmwiNgoSVXBkYXRlVXNlclJlc3BvbnNlEiAKBHVzZXIYASABKAsyEi5jb25maWRhbnQudjEuVXNlcjL2AwoLVXNlclNlcnZpY2USWwoOR2V0Q3VycmVudFVzZXISIy5jb25maWRhbnQudjEuR2V0Q3VycmVudFVzZXJSZXF1ZXN0GiQuY29uZmlkYW50LnYxLkdldEN1cnJlbnRVc2VyUmVzcG9uc2USYQoQQWRkSW50YWtlQWRkcmVzcxIlLmNvbmZpZGFudC52MS5BZGRJbnRha2VBZGRyZXNzUmVxdWVzdBomLmNvbmZpZGFudC52MS5BZGRJbnRha2VBZGRyZXNzUmVzcG9uc2USagoTTGlzdEludGFrZUFkZHJlc3NlcxIoLmNvbmZpZGFudC52MS5MaXN0SW50YWtlQWRkcmVzc2VzUmVxdWVzdBopLmNvbmZpZGFudC52MS5MaXN0SW50YWtlQWRkcmVzc2VzUmVzcG9uc2USagoTUmVtb3ZlSW50YWtlQWRkcmVzcxIoLmNvbmZpZGFudC52MS5SZW1vdmVJbnRha2VBZGRyZXNzUmVxdWVzdBopLmNvbmZpZGFudC52MS5SZW1vdmVJbnRha2VBZGRyZXNzUmVzcG9uc2USTwoKVXBkYXRlVXNlchIfLmNvbmZpZGFudC52MS5VcGRhdGVVc2VyUmVxdWVzdBogLmNvbmZpZGFudC52MS5VcGRhdGVVc2VyUmVzcG9uc2VCRFpCZ2l0aHViLmNvbS9hdXNwaWNpb3Vzd29tYmF0L2NvbmZpZGFudC9nZW4vY29uZmlkYW50L3YxO2NvbmZpZGFudHYxYgZwcm90bzM", [file_confidant_v1_user]);
+export const file_confidant_v1_user_service = /*@__PURE__*/ fileDesc("Ch9jb25maWRhbnQvdjEvdXNlcl9zZXJ2aWNlLnByb3RvEgxjb25maWRhbnQudjEiFwoVR2V0Q3VycmVudFVzZXJSZXF1ZXN0IjoKFkdldEN1cnJlbnRVc2VyUmVzcG9uc2USIAoEdXNlchgBIAEoCzISLmNvbmZpZGFudC52MS5Vc2VyImcKEVVwZGF0ZVVzZXJSZXF1ZXN0EhkKDGRpc3BsYXlfbmFtZRgBIAEoCUgAiAEBEhcKCmF2YXRhcl91cmwYAiABKAlIAYgBAUIPCg1fZGlzcGxheV9uYW1lQg0KC19hdmF0YXJfdXJsIjYKElVwZGF0ZVVzZXJSZXNwb25zZRIgCgR1c2VyGAEgASgLMhIuY29uZmlkYW50LnYxLlVzZXIiKgoZQ3JlYXRlQ29udGFjdEVtYWlsUmVxdWVzdBINCgVsYWJlbBgBIAEoCSJPChpDcmVhdGVDb250YWN0RW1haWxSZXNwb25zZRIxCg1jb250YWN0X2VtYWlsGAEgASgLMhouY29uZmlkYW50LnYxLkNvbnRhY3RFbWFpbCJBChhMaXN0Q29udGFjdEVtYWlsc1JlcXVlc3QSEQoJcGFnZV9zaXplGAEgASgFEhIKCnBhZ2VfdG9rZW4YAiABKAkiaAoZTGlzdENvbnRhY3RFbWFpbHNSZXNwb25zZRIyCg5jb250YWN0X2VtYWlscxgBIAMoCzIaLmNvbmZpZGFudC52MS5Db250YWN0RW1haWwSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJIicKGVJldGlyZUNvbnRhY3RFbWFpbFJlcXVlc3QSCgoCaWQYASABKAkiTwoaUmV0aXJlQ29udGFjdEVtYWlsUmVzcG9uc2USMQoNY29udGFjdF9lbWFpbBgBIAEoCzIaLmNvbmZpZGFudC52MS5Db250YWN0RW1haWwiKwodUmVhY3RpdmF0ZUNvbnRhY3RFbWFpbFJlcXVlc3QSCgoCaWQYASABKAkiUwoeUmVhY3RpdmF0ZUNvbnRhY3RFbWFpbFJlc3BvbnNlEjEKDWNvbnRhY3RfZW1haWwYASABKAsyGi5jb25maWRhbnQudjEuQ29udGFjdEVtYWlsIjsKHlVwZGF0ZUNvbnRhY3RFbWFpbExhYmVsUmVxdWVzdBIKCgJpZBgBIAEoCRINCgVsYWJlbBgCIAEoCSJUCh9VcGRhdGVDb250YWN0RW1haWxMYWJlbFJlc3BvbnNlEjEKDWNvbnRhY3RfZW1haWwYASABKAsyGi5jb25maWRhbnQudjEuQ29udGFjdEVtYWlsMuAFCgtVc2VyU2VydmljZRJbCg5HZXRDdXJyZW50VXNlchIjLmNvbmZpZGFudC52MS5HZXRDdXJyZW50VXNlclJlcXVlc3QaJC5jb25maWRhbnQudjEuR2V0Q3VycmVudFVzZXJSZXNwb25zZRJPCgpVcGRhdGVVc2VyEh8uY29uZmlkYW50LnYxLlVwZGF0ZVVzZXJSZXF1ZXN0GiAuY29uZmlkYW50LnYxLlVwZGF0ZVVzZXJSZXNwb25zZRJnChJDcmVhdGVDb250YWN0RW1haWwSJy5jb25maWRhbnQudjEuQ3JlYXRlQ29udGFjdEVtYWlsUmVxdWVzdBooLmNvbmZpZGFudC52MS5DcmVhdGVDb250YWN0RW1haWxSZXNwb25zZRJkChFMaXN0Q29udGFjdEVtYWlscxImLmNvbmZpZGFudC52MS5MaXN0Q29udGFjdEVtYWlsc1JlcXVlc3QaJy5jb25maWRhbnQudjEuTGlzdENvbnRhY3RFbWFpbHNSZXNwb25zZRJnChJSZXRpcmVDb250YWN0RW1haWwSJy5jb25maWRhbnQudjEuUmV0aXJlQ29udGFjdEVtYWlsUmVxdWVzdBooLmNvbmZpZGFudC52MS5SZXRpcmVDb250YWN0RW1haWxSZXNwb25zZRJzChZSZWFjdGl2YXRlQ29udGFjdEVtYWlsEisuY29uZmlkYW50LnYxLlJlYWN0aXZhdGVDb250YWN0RW1haWxSZXF1ZXN0GiwuY29uZmlkYW50LnYxLlJlYWN0aXZhdGVDb250YWN0RW1haWxSZXNwb25zZRJ2ChdVcGRhdGVDb250YWN0RW1haWxMYWJlbBIsLmNvbmZpZGFudC52MS5VcGRhdGVDb250YWN0RW1haWxMYWJlbFJlcXVlc3QaLS5jb25maWRhbnQudjEuVXBkYXRlQ29udGFjdEVtYWlsTGFiZWxSZXNwb25zZUJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_confidant_v1_user]);
 /**
  * Describes the message confidant.v1.GetCurrentUserRequest.
  * Use `create(GetCurrentUserRequestSchema)` to create a new message.
@@ -18,45 +18,65 @@ export const GetCurrentUserRequestSchema = /*@__PURE__*/ messageDesc(file_confid
  */
 export const GetCurrentUserResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 1);
 /**
- * Describes the message confidant.v1.AddIntakeAddressRequest.
- * Use `create(AddIntakeAddressRequestSchema)` to create a new message.
- */
-export const AddIntakeAddressRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 2);
-/**
- * Describes the message confidant.v1.AddIntakeAddressResponse.
- * Use `create(AddIntakeAddressResponseSchema)` to create a new message.
- */
-export const AddIntakeAddressResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 3);
-/**
- * Describes the message confidant.v1.ListIntakeAddressesRequest.
- * Use `create(ListIntakeAddressesRequestSchema)` to create a new message.
- */
-export const ListIntakeAddressesRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 4);
-/**
- * Describes the message confidant.v1.ListIntakeAddressesResponse.
- * Use `create(ListIntakeAddressesResponseSchema)` to create a new message.
- */
-export const ListIntakeAddressesResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 5);
-/**
- * Describes the message confidant.v1.RemoveIntakeAddressRequest.
- * Use `create(RemoveIntakeAddressRequestSchema)` to create a new message.
- */
-export const RemoveIntakeAddressRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 6);
-/**
- * Describes the message confidant.v1.RemoveIntakeAddressResponse.
- * Use `create(RemoveIntakeAddressResponseSchema)` to create a new message.
- */
-export const RemoveIntakeAddressResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 7);
-/**
  * Describes the message confidant.v1.UpdateUserRequest.
  * Use `create(UpdateUserRequestSchema)` to create a new message.
  */
-export const UpdateUserRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 8);
+export const UpdateUserRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 2);
 /**
  * Describes the message confidant.v1.UpdateUserResponse.
  * Use `create(UpdateUserResponseSchema)` to create a new message.
  */
-export const UpdateUserResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 9);
+export const UpdateUserResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 3);
+/**
+ * Describes the message confidant.v1.CreateContactEmailRequest.
+ * Use `create(CreateContactEmailRequestSchema)` to create a new message.
+ */
+export const CreateContactEmailRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 4);
+/**
+ * Describes the message confidant.v1.CreateContactEmailResponse.
+ * Use `create(CreateContactEmailResponseSchema)` to create a new message.
+ */
+export const CreateContactEmailResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 5);
+/**
+ * Describes the message confidant.v1.ListContactEmailsRequest.
+ * Use `create(ListContactEmailsRequestSchema)` to create a new message.
+ */
+export const ListContactEmailsRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 6);
+/**
+ * Describes the message confidant.v1.ListContactEmailsResponse.
+ * Use `create(ListContactEmailsResponseSchema)` to create a new message.
+ */
+export const ListContactEmailsResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 7);
+/**
+ * Describes the message confidant.v1.RetireContactEmailRequest.
+ * Use `create(RetireContactEmailRequestSchema)` to create a new message.
+ */
+export const RetireContactEmailRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 8);
+/**
+ * Describes the message confidant.v1.RetireContactEmailResponse.
+ * Use `create(RetireContactEmailResponseSchema)` to create a new message.
+ */
+export const RetireContactEmailResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 9);
+/**
+ * Describes the message confidant.v1.ReactivateContactEmailRequest.
+ * Use `create(ReactivateContactEmailRequestSchema)` to create a new message.
+ */
+export const ReactivateContactEmailRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 10);
+/**
+ * Describes the message confidant.v1.ReactivateContactEmailResponse.
+ * Use `create(ReactivateContactEmailResponseSchema)` to create a new message.
+ */
+export const ReactivateContactEmailResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 11);
+/**
+ * Describes the message confidant.v1.UpdateContactEmailLabelRequest.
+ * Use `create(UpdateContactEmailLabelRequestSchema)` to create a new message.
+ */
+export const UpdateContactEmailLabelRequestSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 12);
+/**
+ * Describes the message confidant.v1.UpdateContactEmailLabelResponse.
+ * Use `create(UpdateContactEmailLabelResponseSchema)` to create a new message.
+ */
+export const UpdateContactEmailLabelResponseSchema = /*@__PURE__*/ messageDesc(file_confidant_v1_user_service, 13);
 /**
  * @generated from service confidant.v1.UserService
  */

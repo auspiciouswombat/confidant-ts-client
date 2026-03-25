@@ -4,7 +4,7 @@
 
 import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
 import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
-import type { IntakeAddress, User } from "./user_pb.js";
+import type { ContactEmail, User } from "./user_pb.js";
 import { file_confidant_v1_user } from "./user_pb.js";
 import type { Message } from "@bufbuild/protobuf";
 
@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file confidant/v1/user_service.proto.
  */
 export const file_confidant_v1_user_service: GenFile = /*@__PURE__*/
-  fileDesc("Ch9jb25maWRhbnQvdjEvdXNlcl9zZXJ2aWNlLnByb3RvEgxjb25maWRhbnQudjEiFwoVR2V0Q3VycmVudFVzZXJSZXF1ZXN0IjoKFkdldEN1cnJlbnRVc2VyUmVzcG9uc2USIAoEdXNlchgBIAEoCzISLmNvbmZpZGFudC52MS5Vc2VyIjkKF0FkZEludGFrZUFkZHJlc3NSZXF1ZXN0Eg8KB2FkZHJlc3MYASABKAkSDQoFbGFiZWwYAiABKAkiTwoYQWRkSW50YWtlQWRkcmVzc1Jlc3BvbnNlEjMKDmludGFrZV9hZGRyZXNzGAEgASgLMhsuY29uZmlkYW50LnYxLkludGFrZUFkZHJlc3MiHAoaTGlzdEludGFrZUFkZHJlc3Nlc1JlcXVlc3QiVAobTGlzdEludGFrZUFkZHJlc3Nlc1Jlc3BvbnNlEjUKEGludGFrZV9hZGRyZXNzZXMYASADKAsyGy5jb25maWRhbnQudjEuSW50YWtlQWRkcmVzcyIoChpSZW1vdmVJbnRha2VBZGRyZXNzUmVxdWVzdBIKCgJpZBgBIAEoCSIdChtSZW1vdmVJbnRha2VBZGRyZXNzUmVzcG9uc2UiZwoRVXBkYXRlVXNlclJlcXVlc3QSGQoMZGlzcGxheV9uYW1lGAEgASgJSACIAQESFwoKYXZhdGFyX3VybBgCIAEoCUgBiAEBQg8KDV9kaXNwbGF5X25hbWVCDQoLX2F2YXRhcl91cmwiNgoSVXBkYXRlVXNlclJlc3BvbnNlEiAKBHVzZXIYASABKAsyEi5jb25maWRhbnQudjEuVXNlcjL2AwoLVXNlclNlcnZpY2USWwoOR2V0Q3VycmVudFVzZXISIy5jb25maWRhbnQudjEuR2V0Q3VycmVudFVzZXJSZXF1ZXN0GiQuY29uZmlkYW50LnYxLkdldEN1cnJlbnRVc2VyUmVzcG9uc2USYQoQQWRkSW50YWtlQWRkcmVzcxIlLmNvbmZpZGFudC52MS5BZGRJbnRha2VBZGRyZXNzUmVxdWVzdBomLmNvbmZpZGFudC52MS5BZGRJbnRha2VBZGRyZXNzUmVzcG9uc2USagoTTGlzdEludGFrZUFkZHJlc3NlcxIoLmNvbmZpZGFudC52MS5MaXN0SW50YWtlQWRkcmVzc2VzUmVxdWVzdBopLmNvbmZpZGFudC52MS5MaXN0SW50YWtlQWRkcmVzc2VzUmVzcG9uc2USagoTUmVtb3ZlSW50YWtlQWRkcmVzcxIoLmNvbmZpZGFudC52MS5SZW1vdmVJbnRha2VBZGRyZXNzUmVxdWVzdBopLmNvbmZpZGFudC52MS5SZW1vdmVJbnRha2VBZGRyZXNzUmVzcG9uc2USTwoKVXBkYXRlVXNlchIfLmNvbmZpZGFudC52MS5VcGRhdGVVc2VyUmVxdWVzdBogLmNvbmZpZGFudC52MS5VcGRhdGVVc2VyUmVzcG9uc2VCRFpCZ2l0aHViLmNvbS9hdXNwaWNpb3Vzd29tYmF0L2NvbmZpZGFudC9nZW4vY29uZmlkYW50L3YxO2NvbmZpZGFudHYxYgZwcm90bzM", [file_confidant_v1_user]);
+  fileDesc("Ch9jb25maWRhbnQvdjEvdXNlcl9zZXJ2aWNlLnByb3RvEgxjb25maWRhbnQudjEiFwoVR2V0Q3VycmVudFVzZXJSZXF1ZXN0IjoKFkdldEN1cnJlbnRVc2VyUmVzcG9uc2USIAoEdXNlchgBIAEoCzISLmNvbmZpZGFudC52MS5Vc2VyImcKEVVwZGF0ZVVzZXJSZXF1ZXN0EhkKDGRpc3BsYXlfbmFtZRgBIAEoCUgAiAEBEhcKCmF2YXRhcl91cmwYAiABKAlIAYgBAUIPCg1fZGlzcGxheV9uYW1lQg0KC19hdmF0YXJfdXJsIjYKElVwZGF0ZVVzZXJSZXNwb25zZRIgCgR1c2VyGAEgASgLMhIuY29uZmlkYW50LnYxLlVzZXIiKgoZQ3JlYXRlQ29udGFjdEVtYWlsUmVxdWVzdBINCgVsYWJlbBgBIAEoCSJPChpDcmVhdGVDb250YWN0RW1haWxSZXNwb25zZRIxCg1jb250YWN0X2VtYWlsGAEgASgLMhouY29uZmlkYW50LnYxLkNvbnRhY3RFbWFpbCJBChhMaXN0Q29udGFjdEVtYWlsc1JlcXVlc3QSEQoJcGFnZV9zaXplGAEgASgFEhIKCnBhZ2VfdG9rZW4YAiABKAkiaAoZTGlzdENvbnRhY3RFbWFpbHNSZXNwb25zZRIyCg5jb250YWN0X2VtYWlscxgBIAMoCzIaLmNvbmZpZGFudC52MS5Db250YWN0RW1haWwSFwoPbmV4dF9wYWdlX3Rva2VuGAIgASgJIicKGVJldGlyZUNvbnRhY3RFbWFpbFJlcXVlc3QSCgoCaWQYASABKAkiTwoaUmV0aXJlQ29udGFjdEVtYWlsUmVzcG9uc2USMQoNY29udGFjdF9lbWFpbBgBIAEoCzIaLmNvbmZpZGFudC52MS5Db250YWN0RW1haWwiKwodUmVhY3RpdmF0ZUNvbnRhY3RFbWFpbFJlcXVlc3QSCgoCaWQYASABKAkiUwoeUmVhY3RpdmF0ZUNvbnRhY3RFbWFpbFJlc3BvbnNlEjEKDWNvbnRhY3RfZW1haWwYASABKAsyGi5jb25maWRhbnQudjEuQ29udGFjdEVtYWlsIjsKHlVwZGF0ZUNvbnRhY3RFbWFpbExhYmVsUmVxdWVzdBIKCgJpZBgBIAEoCRINCgVsYWJlbBgCIAEoCSJUCh9VcGRhdGVDb250YWN0RW1haWxMYWJlbFJlc3BvbnNlEjEKDWNvbnRhY3RfZW1haWwYASABKAsyGi5jb25maWRhbnQudjEuQ29udGFjdEVtYWlsMuAFCgtVc2VyU2VydmljZRJbCg5HZXRDdXJyZW50VXNlchIjLmNvbmZpZGFudC52MS5HZXRDdXJyZW50VXNlclJlcXVlc3QaJC5jb25maWRhbnQudjEuR2V0Q3VycmVudFVzZXJSZXNwb25zZRJPCgpVcGRhdGVVc2VyEh8uY29uZmlkYW50LnYxLlVwZGF0ZVVzZXJSZXF1ZXN0GiAuY29uZmlkYW50LnYxLlVwZGF0ZVVzZXJSZXNwb25zZRJnChJDcmVhdGVDb250YWN0RW1haWwSJy5jb25maWRhbnQudjEuQ3JlYXRlQ29udGFjdEVtYWlsUmVxdWVzdBooLmNvbmZpZGFudC52MS5DcmVhdGVDb250YWN0RW1haWxSZXNwb25zZRJkChFMaXN0Q29udGFjdEVtYWlscxImLmNvbmZpZGFudC52MS5MaXN0Q29udGFjdEVtYWlsc1JlcXVlc3QaJy5jb25maWRhbnQudjEuTGlzdENvbnRhY3RFbWFpbHNSZXNwb25zZRJnChJSZXRpcmVDb250YWN0RW1haWwSJy5jb25maWRhbnQudjEuUmV0aXJlQ29udGFjdEVtYWlsUmVxdWVzdBooLmNvbmZpZGFudC52MS5SZXRpcmVDb250YWN0RW1haWxSZXNwb25zZRJzChZSZWFjdGl2YXRlQ29udGFjdEVtYWlsEisuY29uZmlkYW50LnYxLlJlYWN0aXZhdGVDb250YWN0RW1haWxSZXF1ZXN0GiwuY29uZmlkYW50LnYxLlJlYWN0aXZhdGVDb250YWN0RW1haWxSZXNwb25zZRJ2ChdVcGRhdGVDb250YWN0RW1haWxMYWJlbBIsLmNvbmZpZGFudC52MS5VcGRhdGVDb250YWN0RW1haWxMYWJlbFJlcXVlc3QaLS5jb25maWRhbnQudjEuVXBkYXRlQ29udGFjdEVtYWlsTGFiZWxSZXNwb25zZUJEWkJnaXRodWIuY29tL2F1c3BpY2lvdXN3b21iYXQvY29uZmlkYW50L2dlbi9jb25maWRhbnQvdjE7Y29uZmlkYW50djFiBnByb3RvMw", [file_confidant_v1_user]);
 
 /**
  * @generated from message confidant.v1.GetCurrentUserRequest
@@ -45,105 +45,6 @@ export const GetCurrentUserResponseSchema: GenMessage<GetCurrentUserResponse> = 
   messageDesc(file_confidant_v1_user_service, 1);
 
 /**
- * @generated from message confidant.v1.AddIntakeAddressRequest
- */
-export type AddIntakeAddressRequest = Message<"confidant.v1.AddIntakeAddressRequest"> & {
-  /**
-   * @generated from field: string address = 1;
-   */
-  address: string;
-
-  /**
-   * @generated from field: string label = 2;
-   */
-  label: string;
-};
-
-/**
- * Describes the message confidant.v1.AddIntakeAddressRequest.
- * Use `create(AddIntakeAddressRequestSchema)` to create a new message.
- */
-export const AddIntakeAddressRequestSchema: GenMessage<AddIntakeAddressRequest> = /*@__PURE__*/
-  messageDesc(file_confidant_v1_user_service, 2);
-
-/**
- * @generated from message confidant.v1.AddIntakeAddressResponse
- */
-export type AddIntakeAddressResponse = Message<"confidant.v1.AddIntakeAddressResponse"> & {
-  /**
-   * @generated from field: confidant.v1.IntakeAddress intake_address = 1;
-   */
-  intakeAddress?: IntakeAddress;
-};
-
-/**
- * Describes the message confidant.v1.AddIntakeAddressResponse.
- * Use `create(AddIntakeAddressResponseSchema)` to create a new message.
- */
-export const AddIntakeAddressResponseSchema: GenMessage<AddIntakeAddressResponse> = /*@__PURE__*/
-  messageDesc(file_confidant_v1_user_service, 3);
-
-/**
- * @generated from message confidant.v1.ListIntakeAddressesRequest
- */
-export type ListIntakeAddressesRequest = Message<"confidant.v1.ListIntakeAddressesRequest"> & {
-};
-
-/**
- * Describes the message confidant.v1.ListIntakeAddressesRequest.
- * Use `create(ListIntakeAddressesRequestSchema)` to create a new message.
- */
-export const ListIntakeAddressesRequestSchema: GenMessage<ListIntakeAddressesRequest> = /*@__PURE__*/
-  messageDesc(file_confidant_v1_user_service, 4);
-
-/**
- * @generated from message confidant.v1.ListIntakeAddressesResponse
- */
-export type ListIntakeAddressesResponse = Message<"confidant.v1.ListIntakeAddressesResponse"> & {
-  /**
-   * @generated from field: repeated confidant.v1.IntakeAddress intake_addresses = 1;
-   */
-  intakeAddresses: IntakeAddress[];
-};
-
-/**
- * Describes the message confidant.v1.ListIntakeAddressesResponse.
- * Use `create(ListIntakeAddressesResponseSchema)` to create a new message.
- */
-export const ListIntakeAddressesResponseSchema: GenMessage<ListIntakeAddressesResponse> = /*@__PURE__*/
-  messageDesc(file_confidant_v1_user_service, 5);
-
-/**
- * @generated from message confidant.v1.RemoveIntakeAddressRequest
- */
-export type RemoveIntakeAddressRequest = Message<"confidant.v1.RemoveIntakeAddressRequest"> & {
-  /**
-   * @generated from field: string id = 1;
-   */
-  id: string;
-};
-
-/**
- * Describes the message confidant.v1.RemoveIntakeAddressRequest.
- * Use `create(RemoveIntakeAddressRequestSchema)` to create a new message.
- */
-export const RemoveIntakeAddressRequestSchema: GenMessage<RemoveIntakeAddressRequest> = /*@__PURE__*/
-  messageDesc(file_confidant_v1_user_service, 6);
-
-/**
- * @generated from message confidant.v1.RemoveIntakeAddressResponse
- */
-export type RemoveIntakeAddressResponse = Message<"confidant.v1.RemoveIntakeAddressResponse"> & {
-};
-
-/**
- * Describes the message confidant.v1.RemoveIntakeAddressResponse.
- * Use `create(RemoveIntakeAddressResponseSchema)` to create a new message.
- */
-export const RemoveIntakeAddressResponseSchema: GenMessage<RemoveIntakeAddressResponse> = /*@__PURE__*/
-  messageDesc(file_confidant_v1_user_service, 7);
-
-/**
  * @generated from message confidant.v1.UpdateUserRequest
  */
 export type UpdateUserRequest = Message<"confidant.v1.UpdateUserRequest"> & {
@@ -163,7 +64,7 @@ export type UpdateUserRequest = Message<"confidant.v1.UpdateUserRequest"> & {
  * Use `create(UpdateUserRequestSchema)` to create a new message.
  */
 export const UpdateUserRequestSchema: GenMessage<UpdateUserRequest> = /*@__PURE__*/
-  messageDesc(file_confidant_v1_user_service, 8);
+  messageDesc(file_confidant_v1_user_service, 2);
 
 /**
  * @generated from message confidant.v1.UpdateUserResponse
@@ -180,7 +81,192 @@ export type UpdateUserResponse = Message<"confidant.v1.UpdateUserResponse"> & {
  * Use `create(UpdateUserResponseSchema)` to create a new message.
  */
 export const UpdateUserResponseSchema: GenMessage<UpdateUserResponse> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 3);
+
+/**
+ * @generated from message confidant.v1.CreateContactEmailRequest
+ */
+export type CreateContactEmailRequest = Message<"confidant.v1.CreateContactEmailRequest"> & {
+  /**
+   * @generated from field: string label = 1;
+   */
+  label: string;
+};
+
+/**
+ * Describes the message confidant.v1.CreateContactEmailRequest.
+ * Use `create(CreateContactEmailRequestSchema)` to create a new message.
+ */
+export const CreateContactEmailRequestSchema: GenMessage<CreateContactEmailRequest> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 4);
+
+/**
+ * @generated from message confidant.v1.CreateContactEmailResponse
+ */
+export type CreateContactEmailResponse = Message<"confidant.v1.CreateContactEmailResponse"> & {
+  /**
+   * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+   */
+  contactEmail?: ContactEmail;
+};
+
+/**
+ * Describes the message confidant.v1.CreateContactEmailResponse.
+ * Use `create(CreateContactEmailResponseSchema)` to create a new message.
+ */
+export const CreateContactEmailResponseSchema: GenMessage<CreateContactEmailResponse> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 5);
+
+/**
+ * @generated from message confidant.v1.ListContactEmailsRequest
+ */
+export type ListContactEmailsRequest = Message<"confidant.v1.ListContactEmailsRequest"> & {
+  /**
+   * @generated from field: int32 page_size = 1;
+   */
+  pageSize: number;
+
+  /**
+   * @generated from field: string page_token = 2;
+   */
+  pageToken: string;
+};
+
+/**
+ * Describes the message confidant.v1.ListContactEmailsRequest.
+ * Use `create(ListContactEmailsRequestSchema)` to create a new message.
+ */
+export const ListContactEmailsRequestSchema: GenMessage<ListContactEmailsRequest> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 6);
+
+/**
+ * @generated from message confidant.v1.ListContactEmailsResponse
+ */
+export type ListContactEmailsResponse = Message<"confidant.v1.ListContactEmailsResponse"> & {
+  /**
+   * @generated from field: repeated confidant.v1.ContactEmail contact_emails = 1;
+   */
+  contactEmails: ContactEmail[];
+
+  /**
+   * @generated from field: string next_page_token = 2;
+   */
+  nextPageToken: string;
+};
+
+/**
+ * Describes the message confidant.v1.ListContactEmailsResponse.
+ * Use `create(ListContactEmailsResponseSchema)` to create a new message.
+ */
+export const ListContactEmailsResponseSchema: GenMessage<ListContactEmailsResponse> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 7);
+
+/**
+ * @generated from message confidant.v1.RetireContactEmailRequest
+ */
+export type RetireContactEmailRequest = Message<"confidant.v1.RetireContactEmailRequest"> & {
+  /**
+   * @generated from field: string id = 1;
+   */
+  id: string;
+};
+
+/**
+ * Describes the message confidant.v1.RetireContactEmailRequest.
+ * Use `create(RetireContactEmailRequestSchema)` to create a new message.
+ */
+export const RetireContactEmailRequestSchema: GenMessage<RetireContactEmailRequest> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 8);
+
+/**
+ * @generated from message confidant.v1.RetireContactEmailResponse
+ */
+export type RetireContactEmailResponse = Message<"confidant.v1.RetireContactEmailResponse"> & {
+  /**
+   * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+   */
+  contactEmail?: ContactEmail;
+};
+
+/**
+ * Describes the message confidant.v1.RetireContactEmailResponse.
+ * Use `create(RetireContactEmailResponseSchema)` to create a new message.
+ */
+export const RetireContactEmailResponseSchema: GenMessage<RetireContactEmailResponse> = /*@__PURE__*/
   messageDesc(file_confidant_v1_user_service, 9);
+
+/**
+ * @generated from message confidant.v1.ReactivateContactEmailRequest
+ */
+export type ReactivateContactEmailRequest = Message<"confidant.v1.ReactivateContactEmailRequest"> & {
+  /**
+   * @generated from field: string id = 1;
+   */
+  id: string;
+};
+
+/**
+ * Describes the message confidant.v1.ReactivateContactEmailRequest.
+ * Use `create(ReactivateContactEmailRequestSchema)` to create a new message.
+ */
+export const ReactivateContactEmailRequestSchema: GenMessage<ReactivateContactEmailRequest> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 10);
+
+/**
+ * @generated from message confidant.v1.ReactivateContactEmailResponse
+ */
+export type ReactivateContactEmailResponse = Message<"confidant.v1.ReactivateContactEmailResponse"> & {
+  /**
+   * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+   */
+  contactEmail?: ContactEmail;
+};
+
+/**
+ * Describes the message confidant.v1.ReactivateContactEmailResponse.
+ * Use `create(ReactivateContactEmailResponseSchema)` to create a new message.
+ */
+export const ReactivateContactEmailResponseSchema: GenMessage<ReactivateContactEmailResponse> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 11);
+
+/**
+ * @generated from message confidant.v1.UpdateContactEmailLabelRequest
+ */
+export type UpdateContactEmailLabelRequest = Message<"confidant.v1.UpdateContactEmailLabelRequest"> & {
+  /**
+   * @generated from field: string id = 1;
+   */
+  id: string;
+
+  /**
+   * @generated from field: string label = 2;
+   */
+  label: string;
+};
+
+/**
+ * Describes the message confidant.v1.UpdateContactEmailLabelRequest.
+ * Use `create(UpdateContactEmailLabelRequestSchema)` to create a new message.
+ */
+export const UpdateContactEmailLabelRequestSchema: GenMessage<UpdateContactEmailLabelRequest> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 12);
+
+/**
+ * @generated from message confidant.v1.UpdateContactEmailLabelResponse
+ */
+export type UpdateContactEmailLabelResponse = Message<"confidant.v1.UpdateContactEmailLabelResponse"> & {
+  /**
+   * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+   */
+  contactEmail?: ContactEmail;
+};
+
+/**
+ * Describes the message confidant.v1.UpdateContactEmailLabelResponse.
+ * Use `create(UpdateContactEmailLabelResponseSchema)` to create a new message.
+ */
+export const UpdateContactEmailLabelResponseSchema: GenMessage<UpdateContactEmailLabelResponse> = /*@__PURE__*/
+  messageDesc(file_confidant_v1_user_service, 13);
 
 /**
  * @generated from service confidant.v1.UserService
@@ -188,7 +274,6 @@ export const UpdateUserResponseSchema: GenMessage<UpdateUserResponse> = /*@__PUR
 export const UserService: GenService<{
   /**
    * Returns the current authenticated user, creating the account on first call.
-   * Identity is derived from the JWT — no request fields needed.
    *
    * @generated from rpc confidant.v1.UserService.GetCurrentUser
    */
@@ -196,36 +281,6 @@ export const UserService: GenService<{
     methodKind: "unary";
     input: typeof GetCurrentUserRequestSchema;
     output: typeof GetCurrentUserResponseSchema;
-  },
-  /**
-   * Adds an intake email address for the authenticated user.
-   *
-   * @generated from rpc confidant.v1.UserService.AddIntakeAddress
-   */
-  addIntakeAddress: {
-    methodKind: "unary";
-    input: typeof AddIntakeAddressRequestSchema;
-    output: typeof AddIntakeAddressResponseSchema;
-  },
-  /**
-   * Lists all intake addresses for the authenticated user.
-   *
-   * @generated from rpc confidant.v1.UserService.ListIntakeAddresses
-   */
-  listIntakeAddresses: {
-    methodKind: "unary";
-    input: typeof ListIntakeAddressesRequestSchema;
-    output: typeof ListIntakeAddressesResponseSchema;
-  },
-  /**
-   * Removes an intake address by ID for the authenticated user.
-   *
-   * @generated from rpc confidant.v1.UserService.RemoveIntakeAddress
-   */
-  removeIntakeAddress: {
-    methodKind: "unary";
-    input: typeof RemoveIntakeAddressRequestSchema;
-    output: typeof RemoveIntakeAddressResponseSchema;
   },
   /**
    * Updates the authenticated user's profile fields.
@@ -236,6 +291,56 @@ export const UserService: GenService<{
     methodKind: "unary";
     input: typeof UpdateUserRequestSchema;
     output: typeof UpdateUserResponseSchema;
+  },
+  /**
+   * Creates a new server-generated contact email address for the user.
+   *
+   * @generated from rpc confidant.v1.UserService.CreateContactEmail
+   */
+  createContactEmail: {
+    methodKind: "unary";
+    input: typeof CreateContactEmailRequestSchema;
+    output: typeof CreateContactEmailResponseSchema;
+  },
+  /**
+   * Lists all contact emails for the authenticated user (including retired).
+   *
+   * @generated from rpc confidant.v1.UserService.ListContactEmails
+   */
+  listContactEmails: {
+    methodKind: "unary";
+    input: typeof ListContactEmailsRequestSchema;
+    output: typeof ListContactEmailsResponseSchema;
+  },
+  /**
+   * Retires a contact email (soft-delete — preserved for history).
+   *
+   * @generated from rpc confidant.v1.UserService.RetireContactEmail
+   */
+  retireContactEmail: {
+    methodKind: "unary";
+    input: typeof RetireContactEmailRequestSchema;
+    output: typeof RetireContactEmailResponseSchema;
+  },
+  /**
+   * Reactivates a previously retired contact email.
+   *
+   * @generated from rpc confidant.v1.UserService.ReactivateContactEmail
+   */
+  reactivateContactEmail: {
+    methodKind: "unary";
+    input: typeof ReactivateContactEmailRequestSchema;
+    output: typeof ReactivateContactEmailResponseSchema;
+  },
+  /**
+   * Updates the user-editable label on a contact email.
+   *
+   * @generated from rpc confidant.v1.UserService.UpdateContactEmailLabel
+   */
+  updateContactEmailLabel: {
+    methodKind: "unary";
+    input: typeof UpdateContactEmailLabelRequestSchema;
+    output: typeof UpdateContactEmailLabelResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_confidant_v1_user_service, 0);

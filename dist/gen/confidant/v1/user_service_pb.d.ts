@@ -1,5 +1,5 @@
 import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
-import type { IntakeAddress, User } from "./user_pb.js";
+import type { ContactEmail, User } from "./user_pb.js";
 import type { Message } from "@bufbuild/protobuf";
 /**
  * Describes the file confidant/v1/user_service.proto.
@@ -28,84 +28,6 @@ export type GetCurrentUserResponse = Message<"confidant.v1.GetCurrentUserRespons
  * Use `create(GetCurrentUserResponseSchema)` to create a new message.
  */
 export declare const GetCurrentUserResponseSchema: GenMessage<GetCurrentUserResponse>;
-/**
- * @generated from message confidant.v1.AddIntakeAddressRequest
- */
-export type AddIntakeAddressRequest = Message<"confidant.v1.AddIntakeAddressRequest"> & {
-    /**
-     * @generated from field: string address = 1;
-     */
-    address: string;
-    /**
-     * @generated from field: string label = 2;
-     */
-    label: string;
-};
-/**
- * Describes the message confidant.v1.AddIntakeAddressRequest.
- * Use `create(AddIntakeAddressRequestSchema)` to create a new message.
- */
-export declare const AddIntakeAddressRequestSchema: GenMessage<AddIntakeAddressRequest>;
-/**
- * @generated from message confidant.v1.AddIntakeAddressResponse
- */
-export type AddIntakeAddressResponse = Message<"confidant.v1.AddIntakeAddressResponse"> & {
-    /**
-     * @generated from field: confidant.v1.IntakeAddress intake_address = 1;
-     */
-    intakeAddress?: IntakeAddress;
-};
-/**
- * Describes the message confidant.v1.AddIntakeAddressResponse.
- * Use `create(AddIntakeAddressResponseSchema)` to create a new message.
- */
-export declare const AddIntakeAddressResponseSchema: GenMessage<AddIntakeAddressResponse>;
-/**
- * @generated from message confidant.v1.ListIntakeAddressesRequest
- */
-export type ListIntakeAddressesRequest = Message<"confidant.v1.ListIntakeAddressesRequest"> & {};
-/**
- * Describes the message confidant.v1.ListIntakeAddressesRequest.
- * Use `create(ListIntakeAddressesRequestSchema)` to create a new message.
- */
-export declare const ListIntakeAddressesRequestSchema: GenMessage<ListIntakeAddressesRequest>;
-/**
- * @generated from message confidant.v1.ListIntakeAddressesResponse
- */
-export type ListIntakeAddressesResponse = Message<"confidant.v1.ListIntakeAddressesResponse"> & {
-    /**
-     * @generated from field: repeated confidant.v1.IntakeAddress intake_addresses = 1;
-     */
-    intakeAddresses: IntakeAddress[];
-};
-/**
- * Describes the message confidant.v1.ListIntakeAddressesResponse.
- * Use `create(ListIntakeAddressesResponseSchema)` to create a new message.
- */
-export declare const ListIntakeAddressesResponseSchema: GenMessage<ListIntakeAddressesResponse>;
-/**
- * @generated from message confidant.v1.RemoveIntakeAddressRequest
- */
-export type RemoveIntakeAddressRequest = Message<"confidant.v1.RemoveIntakeAddressRequest"> & {
-    /**
-     * @generated from field: string id = 1;
-     */
-    id: string;
-};
-/**
- * Describes the message confidant.v1.RemoveIntakeAddressRequest.
- * Use `create(RemoveIntakeAddressRequestSchema)` to create a new message.
- */
-export declare const RemoveIntakeAddressRequestSchema: GenMessage<RemoveIntakeAddressRequest>;
-/**
- * @generated from message confidant.v1.RemoveIntakeAddressResponse
- */
-export type RemoveIntakeAddressResponse = Message<"confidant.v1.RemoveIntakeAddressResponse"> & {};
-/**
- * Describes the message confidant.v1.RemoveIntakeAddressResponse.
- * Use `create(RemoveIntakeAddressResponseSchema)` to create a new message.
- */
-export declare const RemoveIntakeAddressResponseSchema: GenMessage<RemoveIntakeAddressResponse>;
 /**
  * @generated from message confidant.v1.UpdateUserRequest
  */
@@ -139,12 +61,163 @@ export type UpdateUserResponse = Message<"confidant.v1.UpdateUserResponse"> & {
  */
 export declare const UpdateUserResponseSchema: GenMessage<UpdateUserResponse>;
 /**
+ * @generated from message confidant.v1.CreateContactEmailRequest
+ */
+export type CreateContactEmailRequest = Message<"confidant.v1.CreateContactEmailRequest"> & {
+    /**
+     * @generated from field: string label = 1;
+     */
+    label: string;
+};
+/**
+ * Describes the message confidant.v1.CreateContactEmailRequest.
+ * Use `create(CreateContactEmailRequestSchema)` to create a new message.
+ */
+export declare const CreateContactEmailRequestSchema: GenMessage<CreateContactEmailRequest>;
+/**
+ * @generated from message confidant.v1.CreateContactEmailResponse
+ */
+export type CreateContactEmailResponse = Message<"confidant.v1.CreateContactEmailResponse"> & {
+    /**
+     * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+     */
+    contactEmail?: ContactEmail;
+};
+/**
+ * Describes the message confidant.v1.CreateContactEmailResponse.
+ * Use `create(CreateContactEmailResponseSchema)` to create a new message.
+ */
+export declare const CreateContactEmailResponseSchema: GenMessage<CreateContactEmailResponse>;
+/**
+ * @generated from message confidant.v1.ListContactEmailsRequest
+ */
+export type ListContactEmailsRequest = Message<"confidant.v1.ListContactEmailsRequest"> & {
+    /**
+     * @generated from field: int32 page_size = 1;
+     */
+    pageSize: number;
+    /**
+     * @generated from field: string page_token = 2;
+     */
+    pageToken: string;
+};
+/**
+ * Describes the message confidant.v1.ListContactEmailsRequest.
+ * Use `create(ListContactEmailsRequestSchema)` to create a new message.
+ */
+export declare const ListContactEmailsRequestSchema: GenMessage<ListContactEmailsRequest>;
+/**
+ * @generated from message confidant.v1.ListContactEmailsResponse
+ */
+export type ListContactEmailsResponse = Message<"confidant.v1.ListContactEmailsResponse"> & {
+    /**
+     * @generated from field: repeated confidant.v1.ContactEmail contact_emails = 1;
+     */
+    contactEmails: ContactEmail[];
+    /**
+     * @generated from field: string next_page_token = 2;
+     */
+    nextPageToken: string;
+};
+/**
+ * Describes the message confidant.v1.ListContactEmailsResponse.
+ * Use `create(ListContactEmailsResponseSchema)` to create a new message.
+ */
+export declare const ListContactEmailsResponseSchema: GenMessage<ListContactEmailsResponse>;
+/**
+ * @generated from message confidant.v1.RetireContactEmailRequest
+ */
+export type RetireContactEmailRequest = Message<"confidant.v1.RetireContactEmailRequest"> & {
+    /**
+     * @generated from field: string id = 1;
+     */
+    id: string;
+};
+/**
+ * Describes the message confidant.v1.RetireContactEmailRequest.
+ * Use `create(RetireContactEmailRequestSchema)` to create a new message.
+ */
+export declare const RetireContactEmailRequestSchema: GenMessage<RetireContactEmailRequest>;
+/**
+ * @generated from message confidant.v1.RetireContactEmailResponse
+ */
+export type RetireContactEmailResponse = Message<"confidant.v1.RetireContactEmailResponse"> & {
+    /**
+     * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+     */
+    contactEmail?: ContactEmail;
+};
+/**
+ * Describes the message confidant.v1.RetireContactEmailResponse.
+ * Use `create(RetireContactEmailResponseSchema)` to create a new message.
+ */
+export declare const RetireContactEmailResponseSchema: GenMessage<RetireContactEmailResponse>;
+/**
+ * @generated from message confidant.v1.ReactivateContactEmailRequest
+ */
+export type ReactivateContactEmailRequest = Message<"confidant.v1.ReactivateContactEmailRequest"> & {
+    /**
+     * @generated from field: string id = 1;
+     */
+    id: string;
+};
+/**
+ * Describes the message confidant.v1.ReactivateContactEmailRequest.
+ * Use `create(ReactivateContactEmailRequestSchema)` to create a new message.
+ */
+export declare const ReactivateContactEmailRequestSchema: GenMessage<ReactivateContactEmailRequest>;
+/**
+ * @generated from message confidant.v1.ReactivateContactEmailResponse
+ */
+export type ReactivateContactEmailResponse = Message<"confidant.v1.ReactivateContactEmailResponse"> & {
+    /**
+     * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+     */
+    contactEmail?: ContactEmail;
+};
+/**
+ * Describes the message confidant.v1.ReactivateContactEmailResponse.
+ * Use `create(ReactivateContactEmailResponseSchema)` to create a new message.
+ */
+export declare const ReactivateContactEmailResponseSchema: GenMessage<ReactivateContactEmailResponse>;
+/**
+ * @generated from message confidant.v1.UpdateContactEmailLabelRequest
+ */
+export type UpdateContactEmailLabelRequest = Message<"confidant.v1.UpdateContactEmailLabelRequest"> & {
+    /**
+     * @generated from field: string id = 1;
+     */
+    id: string;
+    /**
+     * @generated from field: string label = 2;
+     */
+    label: string;
+};
+/**
+ * Describes the message confidant.v1.UpdateContactEmailLabelRequest.
+ * Use `create(UpdateContactEmailLabelRequestSchema)` to create a new message.
+ */
+export declare const UpdateContactEmailLabelRequestSchema: GenMessage<UpdateContactEmailLabelRequest>;
+/**
+ * @generated from message confidant.v1.UpdateContactEmailLabelResponse
+ */
+export type UpdateContactEmailLabelResponse = Message<"confidant.v1.UpdateContactEmailLabelResponse"> & {
+    /**
+     * @generated from field: confidant.v1.ContactEmail contact_email = 1;
+     */
+    contactEmail?: ContactEmail;
+};
+/**
+ * Describes the message confidant.v1.UpdateContactEmailLabelResponse.
+ * Use `create(UpdateContactEmailLabelResponseSchema)` to create a new message.
+ */
+export declare const UpdateContactEmailLabelResponseSchema: GenMessage<UpdateContactEmailLabelResponse>;
+/**
  * @generated from service confidant.v1.UserService
  */
 export declare const UserService: GenService<{
     /**
      * Returns the current authenticated user, creating the account on first call.
-     * Identity is derived from the JWT — no request fields needed.
      *
      * @generated from rpc confidant.v1.UserService.GetCurrentUser
      */
@@ -152,36 +225,6 @@ export declare const UserService: GenService<{
         methodKind: "unary";
         input: typeof GetCurrentUserRequestSchema;
         output: typeof GetCurrentUserResponseSchema;
-    };
-    /**
-     * Adds an intake email address for the authenticated user.
-     *
-     * @generated from rpc confidant.v1.UserService.AddIntakeAddress
-     */
-    addIntakeAddress: {
-        methodKind: "unary";
-        input: typeof AddIntakeAddressRequestSchema;
-        output: typeof AddIntakeAddressResponseSchema;
-    };
-    /**
-     * Lists all intake addresses for the authenticated user.
-     *
-     * @generated from rpc confidant.v1.UserService.ListIntakeAddresses
-     */
-    listIntakeAddresses: {
-        methodKind: "unary";
-        input: typeof ListIntakeAddressesRequestSchema;
-        output: typeof ListIntakeAddressesResponseSchema;
-    };
-    /**
-     * Removes an intake address by ID for the authenticated user.
-     *
-     * @generated from rpc confidant.v1.UserService.RemoveIntakeAddress
-     */
-    removeIntakeAddress: {
-        methodKind: "unary";
-        input: typeof RemoveIntakeAddressRequestSchema;
-        output: typeof RemoveIntakeAddressResponseSchema;
     };
     /**
      * Updates the authenticated user's profile fields.
@@ -192,6 +235,56 @@ export declare const UserService: GenService<{
         methodKind: "unary";
         input: typeof UpdateUserRequestSchema;
         output: typeof UpdateUserResponseSchema;
+    };
+    /**
+     * Creates a new server-generated contact email address for the user.
+     *
+     * @generated from rpc confidant.v1.UserService.CreateContactEmail
+     */
+    createContactEmail: {
+        methodKind: "unary";
+        input: typeof CreateContactEmailRequestSchema;
+        output: typeof CreateContactEmailResponseSchema;
+    };
+    /**
+     * Lists all contact emails for the authenticated user (including retired).
+     *
+     * @generated from rpc confidant.v1.UserService.ListContactEmails
+     */
+    listContactEmails: {
+        methodKind: "unary";
+        input: typeof ListContactEmailsRequestSchema;
+        output: typeof ListContactEmailsResponseSchema;
+    };
+    /**
+     * Retires a contact email (soft-delete — preserved for history).
+     *
+     * @generated from rpc confidant.v1.UserService.RetireContactEmail
+     */
+    retireContactEmail: {
+        methodKind: "unary";
+        input: typeof RetireContactEmailRequestSchema;
+        output: typeof RetireContactEmailResponseSchema;
+    };
+    /**
+     * Reactivates a previously retired contact email.
+     *
+     * @generated from rpc confidant.v1.UserService.ReactivateContactEmail
+     */
+    reactivateContactEmail: {
+        methodKind: "unary";
+        input: typeof ReactivateContactEmailRequestSchema;
+        output: typeof ReactivateContactEmailResponseSchema;
+    };
+    /**
+     * Updates the user-editable label on a contact email.
+     *
+     * @generated from rpc confidant.v1.UserService.UpdateContactEmailLabel
+     */
+    updateContactEmailLabel: {
+        methodKind: "unary";
+        input: typeof UpdateContactEmailLabelRequestSchema;
+        output: typeof UpdateContactEmailLabelResponseSchema;
     };
 }>;
 //# sourceMappingURL=user_service_pb.d.ts.map

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { describe, it, before, skip } from "node:test";
+import { describe, it, before } from "node:test";
 import { isAlreadyExists } from "../../dist/index.js";
 import { getTestClient, getTestClient2 } from "./helpers.js";
 
@@ -23,69 +23,72 @@ describe("UserService integration", () => {
     assert.equal(resp1.user.id, resp2.user.id, "same user ID on repeated calls");
   });
 
-  describe("IntakeAddresses", () => {
-    const testAddress = `integration-${Date.now()}@test.example.com`;
+  describe("ContactEmails", () => {
+    let contactEmailId;
 
-    it("AddIntakeAddress creates a new address", async () => {
-      const resp = await client.user.addIntakeAddress({
-        address: testAddress,
+    it("CreateContactEmail creates a server-generated address", async () => {
+      const resp = await client.user.createContactEmail({
         label: "Integration Test",
       });
-      assert.ok(resp.intakeAddress, "expected intake address in response");
-      assert.equal(resp.intakeAddress.address, testAddress);
-      assert.equal(resp.intakeAddress.label, "Integration Test");
-      assert.ok(resp.intakeAddress.id, "expected address ID");
+      assert.ok(resp.contactEmail, "expected contact email in response");
+      assert.ok(resp.contactEmail.id, "expected contact email ID");
+      assert.ok(resp.contactEmail.address, "expected server-generated address");
+      assert.equal(resp.contactEmail.label, "Integration Test");
+      contactEmailId = resp.contactEmail.id;
     });
 
-    it("ListIntakeAddresses includes the new address", async () => {
-      const resp = await client.user.listIntakeAddresses({});
-      const found = resp.intakeAddresses.find((a) => a.address === testAddress);
-      assert.ok(found, `expected to find ${testAddress} in list`);
+    it("ListContactEmails includes the new address", async () => {
+      const resp = await client.user.listContactEmails({});
+      const found = resp.contactEmails.find((ce) => ce.id === contactEmailId);
+      assert.ok(found, "expected to find new contact email in list");
     });
 
-    it("AddIntakeAddress rejects duplicates", async () => {
-      await assert.rejects(
-        () => client.user.addIntakeAddress({ address: testAddress }),
-        (err) => {
-          assert.ok(isAlreadyExists(err), `expected AlreadyExists error, got: ${err.message}`);
-          return true;
-        },
-      );
+    it("UpdateContactEmailLabel updates the label", async () => {
+      const resp = await client.user.updateContactEmailLabel({
+        id: contactEmailId,
+        label: "Updated Label",
+      });
+      assert.equal(resp.contactEmail.label, "Updated Label");
     });
 
-    it("RemoveIntakeAddress deletes the address", async () => {
-      const list = await client.user.listIntakeAddresses({});
-      const addr = list.intakeAddresses.find((a) => a.address === testAddress);
-      assert.ok(addr, "address should exist before removal");
+    it("RetireContactEmail retires the address", async () => {
+      const resp = await client.user.retireContactEmail({
+        id: contactEmailId,
+      });
+      assert.ok(resp.contactEmail, "expected contact email in response");
+      assert.ok(resp.contactEmail.retiredAt, "expected retired_at to be set");
+    });
 
-      await client.user.removeIntakeAddress({ id: addr.id });
+    it("ReactivateContactEmail reactivates the address", async () => {
+      const resp = await client.user.reactivateContactEmail({
+        id: contactEmailId,
+      });
+      assert.ok(resp.contactEmail, "expected contact email in response");
+      assert.ok(!resp.contactEmail.retiredAt, "expected retired_at to be cleared");
+    });
 
-      const afterList = await client.user.listIntakeAddresses({});
-      const found = afterList.intakeAddresses.find((a) => a.address === testAddress);
-      assert.ok(!found, "address should not exist after removal");
+    // Cleanup: retire the test address so it doesn't accumulate
+    it("cleanup: retire test address", async () => {
+      await client.user.retireContactEmail({ id: contactEmailId });
     });
   });
 
   describe("User isolation (DRC-082)", () => {
-    it("user 2 cannot see user 1 intake addresses", { skip: !process.env.CONFIDANT_TEST_TOKEN2 }, async () => {
+    it("user 2 cannot see user 1 contact emails", { skip: !process.env.CONFIDANT_TEST_TOKEN2 }, async () => {
       const client2 = getTestClient2();
       assert.ok(client2, "second test user must be configured for isolation tests");
 
-      // User 1 adds an address
-      const addr = `isolation-${Date.now()}@test.example.com`;
-      await client.user.addIntakeAddress({ address: addr, label: "isolation test" });
+      // User 1 creates a contact email
+      const resp1 = await client.user.createContactEmail({ label: "isolation test" });
+      const ceId = resp1.contactEmail.id;
 
       // User 2 should not see it
-      const resp2 = await client2.user.listIntakeAddresses({});
-      const found = resp2.intakeAddresses.find((a) => a.address === addr);
-      assert.ok(!found, "user 2 should not see user 1 addresses");
+      const resp2 = await client2.user.listContactEmails({});
+      const found = resp2.contactEmails.find((ce) => ce.id === ceId);
+      assert.ok(!found, "user 2 should not see user 1 contact emails");
 
       // Cleanup
-      const resp1 = await client.user.listIntakeAddresses({});
-      const toRemove = resp1.intakeAddresses.find((a) => a.address === addr);
-      if (toRemove) {
-        await client.user.removeIntakeAddress({ id: toRemove.id });
-      }
+      await client.user.retireContactEmail({ id: ceId });
     });
   });
 });

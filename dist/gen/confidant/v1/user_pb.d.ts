@@ -1,4 +1,5 @@
 import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
+import type { ContactEmailStatus } from "./common_pb.js";
 import type { Timestamp } from "@bufbuild/protobuf/wkt";
 import type { Message } from "@bufbuild/protobuf";
 /**
@@ -40,9 +41,9 @@ export type User = Message<"confidant.v1.User"> & {
  */
 export declare const UserSchema: GenMessage<User>;
 /**
- * @generated from message confidant.v1.IntakeAddress
+ * @generated from message confidant.v1.ContactEmail
  */
-export type IntakeAddress = Message<"confidant.v1.IntakeAddress"> & {
+export type ContactEmail = Message<"confidant.v1.ContactEmail"> & {
     /**
      * @generated from field: string id = 1;
      */
@@ -56,17 +57,21 @@ export type IntakeAddress = Message<"confidant.v1.IntakeAddress"> & {
      */
     label: string;
     /**
-     * @generated from field: bool is_primary = 4;
+     * @generated from field: confidant.v1.ContactEmailStatus status = 4;
      */
-    isPrimary: boolean;
+    status: ContactEmailStatus;
     /**
-     * @generated from field: google.protobuf.Timestamp created_at = 5;
+     * @generated from field: google.protobuf.Timestamp retired_at = 5;
+     */
+    retiredAt?: Timestamp;
+    /**
+     * @generated from field: google.protobuf.Timestamp created_at = 6;
      */
     createdAt?: Timestamp;
 };
 /**
- * Describes the message confidant.v1.IntakeAddress.
- * Use `create(IntakeAddressSchema)` to create a new message.
+ * Describes the message confidant.v1.ContactEmail.
+ * Use `create(ContactEmailSchema)` to create a new message.
  */
-export declare const IntakeAddressSchema: GenMessage<IntakeAddress>;
+export declare const ContactEmailSchema: GenMessage<ContactEmail>;
 //# sourceMappingURL=user_pb.d.ts.map
