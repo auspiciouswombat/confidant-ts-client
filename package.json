@@ -17,8 +17,9 @@
   ],
   "scripts": {
     "build": "tsc",
-    "proto-sync": "rm -rf proto && git clone --depth 1 https://github.com/auspiciouswombat/confidant-proto.git proto && rm -rf proto/.git",
-    "codegen": "PATH=\"$PATH:./node_modules/.bin\" buf generate proto",
+    "proto-sync": "make proto-sync",
+    "proto-check": "make proto-check",
+    "codegen": "make codegen",
     "prebuild": "npm run codegen",
     "test": "node --test test/smoke.test.js",
     "lint": "biome check src/client.ts src/index.ts test/",
