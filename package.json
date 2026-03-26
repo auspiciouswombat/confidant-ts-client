@@ -20,7 +20,7 @@
     "proto-sync": "make proto-sync",
     "proto-check": "make proto-check",
     "codegen": "make codegen",
-    "prebuild": "npm run codegen",
+    "prebuild": "test -d proto/confidant && npm run codegen || true",
     "prepublishOnly": "npm run build",
     "test": "node --test test/smoke.test.js",
     "test:integration": "./bin/run-integration-tests.sh",
