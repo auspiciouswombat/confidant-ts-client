@@ -63,6 +63,38 @@ describe("createConfidantClient", () => {
   });
 });
 
+describe("tokenProvider option", () => {
+  it("accepts tokenProvider in options", () => {
+    const provider = async () => "test-token";
+    const client = createConfidantClient("http://localhost:8080", {
+      tokenProvider: provider,
+    });
+    assert.ok(client.brand, "client created with tokenProvider");
+  });
+
+  it("tokenProvider and static token can coexist", () => {
+    const client = createConfidantClient("http://localhost:8080", {
+      token: "static",
+      tokenProvider: async () => "dynamic",
+    });
+    assert.ok(client.brand, "client created with both");
+  });
+
+  it("setToken still works with tokenProvider", () => {
+    const client = createConfidantClient("http://localhost:8080", {
+      tokenProvider: async () => "from-provider",
+    });
+    // setToken should not throw
+    client.setToken("override");
+  });
+
+  it("setToken rejects empty token", () => {
+    const client = createConfidantClient("http://localhost:8080");
+    assert.throws(() => client.setToken(""), /Token cannot be empty/);
+    assert.throws(() => client.setToken("  "), /Token cannot be empty/);
+  });
+});
+
 describe("proto enum exports", () => {
   it("exports all enum schemas", () => {
     assert.ok(CardTypeSchema, "CardType exported");

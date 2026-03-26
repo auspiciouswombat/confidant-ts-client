@@ -6,8 +6,14 @@
  *
  * Usage:
  *   import { createConfidantClient } from '@confidant/api-client';
- *   const client = createConfidantClient('http://localhost:8080', { token: 'user-jwt' });
- *   const { brands } = await client.brand.listBrands({});
+ *
+ *   // With token provider (recommended — token is fetched fresh per request):
+ *   const client = createConfidantClient('http://localhost:8080', {
+ *     tokenProvider: () => getSupabaseToken(),
+ *   });
+ *
+ *   // With static token:
+ *   const client = createConfidantClient('http://localhost:8080', { token: 'jwt' });
  */
 
 import { type Client, createClient } from "@connectrpc/connect";
@@ -20,8 +26,10 @@ import { EmailService } from "./gen/confidant/v1/email_service_pb.js";
 import { UserService } from "./gen/confidant/v1/user_service_pb.js";
 
 export interface ConfidantClientOptions {
-  /** JWT token for authentication */
+  /** Static JWT token for authentication */
   token?: string;
+  /** Async callback that returns a fresh token per request. Preferred over static token. */
+  tokenProvider?: () => Promise<string | null>;
   /** Custom headers to include with every request */
   headers?: Record<string, string>;
 }
@@ -32,7 +40,7 @@ export interface ConfidantClient {
   collection: Client<typeof CollectionService>;
   email: Client<typeof EmailService>;
   user: Client<typeof UserService>;
-  /** Update the auth token (e.g., after refresh) */
+  /** Update the auth token (e.g., after refresh). Only needed with static token mode. */
   setToken: (token: string) => void;
 }
 
@@ -40,7 +48,7 @@ export interface ConfidantClient {
  * Create a typed Confidant API client.
  *
  * @param baseUrl - The server URL, e.g. "http://localhost:8080"
- * @param options - Auth token and custom headers
+ * @param options - Auth token/provider and custom headers
  */
 export function createConfidantClient(
   baseUrl: string,
@@ -52,8 +60,12 @@ export function createConfidantClient(
     baseUrl,
     interceptors: [
       (next) => async (req) => {
-        if (currentToken) {
-          req.header.set("Authorization", `Bearer ${currentToken}`);
+        // Token provider takes precedence over static token.
+        const token = options.tokenProvider
+          ? await options.tokenProvider()
+          : currentToken;
+        if (token) {
+          req.header.set("Authorization", `Bearer ${token}`);
         }
         if (options.headers) {
           for (const [key, value] of Object.entries(options.headers)) {
