@@ -6,8 +6,14 @@
  *
  * Usage:
  *   import { createConfidantClient } from '@confidant/api-client';
- *   const client = createConfidantClient('http://localhost:8080', { token: 'user-jwt' });
- *   const { brands } = await client.brand.listBrands({});
+ *
+ *   // With token provider (recommended — token is fetched fresh per request):
+ *   const client = createConfidantClient('http://localhost:8080', {
+ *     tokenProvider: () => getSupabaseToken(),
+ *   });
+ *
+ *   // With static token:
+ *   const client = createConfidantClient('http://localhost:8080', { token: 'jwt' });
  */
 import { type Client } from "@connectrpc/connect";
 import { BrandService } from "./gen/confidant/v1/brand_service_pb.js";
@@ -16,8 +22,10 @@ import { CollectionService } from "./gen/confidant/v1/collection_service_pb.js";
 import { EmailService } from "./gen/confidant/v1/email_service_pb.js";
 import { UserService } from "./gen/confidant/v1/user_service_pb.js";
 export interface ConfidantClientOptions {
-    /** JWT token for authentication */
+    /** Static JWT token for authentication */
     token?: string;
+    /** Async callback that returns a fresh token per request. Preferred over static token. */
+    tokenProvider?: () => Promise<string | null>;
     /** Custom headers to include with every request */
     headers?: Record<string, string>;
 }
@@ -27,14 +35,14 @@ export interface ConfidantClient {
     collection: Client<typeof CollectionService>;
     email: Client<typeof EmailService>;
     user: Client<typeof UserService>;
-    /** Update the auth token (e.g., after refresh) */
+    /** Update the auth token (e.g., after refresh). Only needed with static token mode. */
     setToken: (token: string) => void;
 }
 /**
  * Create a typed Confidant API client.
  *
  * @param baseUrl - The server URL, e.g. "http://localhost:8080"
- * @param options - Auth token and custom headers
+ * @param options - Auth token/provider and custom headers
  */
 export declare function createConfidantClient(baseUrl: string, options?: ConfidantClientOptions): ConfidantClient;
 //# sourceMappingURL=client.d.ts.map

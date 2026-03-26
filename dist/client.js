@@ -6,8 +6,14 @@
  *
  * Usage:
  *   import { createConfidantClient } from '@confidant/api-client';
- *   const client = createConfidantClient('http://localhost:8080', { token: 'user-jwt' });
- *   const { brands } = await client.brand.listBrands({});
+ *
+ *   // With token provider (recommended — token is fetched fresh per request):
+ *   const client = createConfidantClient('http://localhost:8080', {
+ *     tokenProvider: () => getSupabaseToken(),
+ *   });
+ *
+ *   // With static token:
+ *   const client = createConfidantClient('http://localhost:8080', { token: 'jwt' });
  */
 import { createClient } from "@connectrpc/connect";
 import { createConnectTransport } from "@connectrpc/connect-web";
@@ -20,7 +26,7 @@ import { UserService } from "./gen/confidant/v1/user_service_pb.js";
  * Create a typed Confidant API client.
  *
  * @param baseUrl - The server URL, e.g. "http://localhost:8080"
- * @param options - Auth token and custom headers
+ * @param options - Auth token/provider and custom headers
  */
 export function createConfidantClient(baseUrl, options = {}) {
     let currentToken = options.token;
@@ -28,8 +34,12 @@ export function createConfidantClient(baseUrl, options = {}) {
         baseUrl,
         interceptors: [
             (next) => async (req) => {
-                if (currentToken) {
-                    req.header.set("Authorization", `Bearer ${currentToken}`);
+                // Token provider takes precedence over static token.
+                const token = options.tokenProvider
+                    ? await options.tokenProvider()
+                    : currentToken;
+                if (token) {
+                    req.header.set("Authorization", `Bearer ${token}`);
                 }
                 if (options.headers) {
                     for (const [key, value] of Object.entries(options.headers)) {
